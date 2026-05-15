@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-heading: 'Plus Jakarta Sans', sans-serif;
+    --font-body: 'Inter', sans-serif;
+
+    --background: 220 10% 5%;
+    --foreground: 0 0% 96%;
+    --card: 220 10% 7%;
+    --card-foreground: 0 0% 96%;
+    --popover: 220 10% 7%;
+    --popover-foreground: 0 0% 96%;
+    --primary: 201 72% 50%;
+    --primary-foreground: 220 10% 5%;
+    --secondary: 220 10% 10%;
+    --secondary-foreground: 0 0% 75%;
+    --muted: 220 10% 12%;
+    --muted-foreground: 220 5% 50%;
+    --accent: 201 72% 50%;
+    --accent-foreground: 220 10% 5%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 220 10% 14%;
+    --input: 220 10% 12%;
+    --ring: 201 72% 50%;
+    --radius: 0.5rem;
+
+    --sidebar-background: 220 10% 7%;
+    --sidebar-foreground: 0 0% 96%;
+    --sidebar-primary: 201 72% 50%;
+    --sidebar-primary-foreground: 220 10% 5%;
+    --sidebar-accent: 220 10% 12%;
+    --sidebar-accent-foreground: 0 0% 96%;
+    --sidebar-border: 220 10% 14%;
+    --sidebar-ring: 201 72% 50%;
+
+    --chart-1: 201 72% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    background-color: #0b0b0d;
+    font-family: var(--font-body);
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: rgba(36, 161, 219, 0.3);
+    color: #fff;
+  }
+
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #0b0b0d;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #24a1db;
+    border-radius: 2px;
+  }
+}
+
+@layer utilities {
+  .text-accent-blue {
+    color: #24a1db;
+  }
+
+  .bg-accent-blue {
+    background-color: #24a1db;
+  }
+
+  .border-accent-blue {
+    border-color: #24a1db;
+  }
+
+  .glow-blue {
+    box-shadow: 0 0 40px rgba(36, 161, 219, 0.3), 0 0 80px rgba(36, 161, 219, 0.1);
+  }
+
+  .glow-blue-sm {
+    box-shadow: 0 0 20px rgba(36, 161, 219, 0.2);
+  }
+
+  .text-glow {
+    text-shadow: 0 0 40px rgba(36, 161, 219, 0.5);
+  }
+
+  .noise {
+    position: relative;
+  }
+
+  .noise::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .gradient-radial-blue {
+    background: radial-gradient(ellipse at center, rgba(36, 161, 219, 0.12) 0%, transparent 70%);
+  }
+
+  .gradient-radial-blue-sm {
+    background: radial-gradient(ellipse at center, rgba(36, 161, 219, 0.06) 0%, transparent 60%);
+  }
+
+  .glass {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .glass-dark {
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .heading-xl {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    line-height: 1.0;
+    letter-spacing: -0.03em;
+  }
+
+  .heading-lg {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+  }
+
+  .font-heading {
+    font-family: var(--font-heading);
+  }
+}
