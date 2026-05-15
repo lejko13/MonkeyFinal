@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Globe, ChevronDown, ArrowUpRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useLang } from '../../lib/LangContext';
 import { SUPPORTED_LANGS } from '../../lib/i18n';
 import { getServices } from '../../lib/servicesData';
@@ -18,7 +18,9 @@ export default function Navbar() {
   const [langOpen, setLangOpen] = useState(false);
   const dropdownRef = useRef(null);
 
-  // Derived from t — reacts to language changes
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const serviceLinks = getServices(t).map(s => ({
     label: s.title,
     href: `/sluzby/${s.id}`,
@@ -28,9 +30,31 @@ export default function Navbar() {
   const navLinks = [
     { label: t.nav.services, href: '#sluzby', hasDropdown: true },
     { label: t.nav.projects, href: '/projects', isRoute: true },
-    { label: t.nav.team, href: '#tim' },
-    { label: t.nav.contact, href: '#kontakt' },
+    { label: t.nav.team, href: '/#tim' },
+    { label: t.nav.contact, href: '/#kontakt' },
   ];
+
+  const handleNavClick = (e, href) => {
+    if (!href.includes('#')) return;
+
+    e.preventDefault();
+
+    const [path, hash] = href.split('#');
+
+    if (location.pathname !== path) {
+      navigate(path || '/');
+
+      setTimeout(() => {
+        const el = document.getElementById(hash);
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+
+      return;
+    }
+
+    const el = document.getElementById(hash);
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  };
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 30);
@@ -55,10 +79,11 @@ export default function Navbar() {
     }`}>
       <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
         <div className="flex items-center justify-between h-[72px]" ref={dropdownRef}>
+          
           {/* Logo */}
           <a href="/" className="flex items-center gap-2 z-10">
-            <div className="w-8 h-8  rounded flex items-center justify-center">
-              <img src="/logosvetle.png" alt="MonkeyMedia logo" className='w-6' />
+            <div className="w-8 h-8 rounded flex items-center justify-center">
+              <img src="/logosvetle.png" alt="MonkeyMedia logo" className="w-6" />
             </div>
             <span className="font-heading font-black text-white text-lg tracking-tight">
               MONKEY<span className="text-[#24a1db]">MEDIA</span>
@@ -79,7 +104,11 @@ export default function Navbar() {
                     <ChevronDown className={`w-3 h-3 transition-transform duration-300 ${servicesOpen ? 'rotate-180' : ''}`} />
                   </button>
                 ) : (
-                  <a href={link.href} className="text-xs font-body font-medium tracking-widest text-white/60 hover:text-white transition-colors duration-200">
+                  <a
+                    href={link.href}
+                    onClick={(e) => handleNavClick(e, link.href)}
+                    className="text-xs font-body font-medium tracking-widest text-white/60 hover:text-white transition-colors duration-200"
+                  >
                     {link.label}
                   </a>
                 )}
@@ -98,10 +127,14 @@ export default function Navbar() {
                 {lang}
                 <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${langOpen ? 'rotate-180' : ''}`} />
               </button>
+
               <AnimatePresence>
                 {langOpen && (
                   <motion.div
-                    initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 8 }} transition={{ duration: 0.2 }}
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 8 }}
+                    transition={{ duration: 0.2 }}
                     className="absolute top-full right-0 mt-2 w-36 bg-[#111214] border border-white/10 rounded-sm overflow-hidden"
                   >
                     {SUPPORTED_LANGS.map((code) => (
@@ -121,9 +154,10 @@ export default function Navbar() {
               </AnimatePresence>
             </div>
 
-            <a href="#kontakt">
+            <a href="/#kontakt" onClick={(e) => handleNavClick(e, '/#kontakt')}>
               <motion.button
-                whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
                 className="px-5 py-2.5 bg-[#24a1db] hover:bg-[#1e8fc4] text-black font-heading font-bold text-xs tracking-widest transition-all duration-200 rounded-sm"
               >
                 {t.nav.cta}
@@ -142,7 +176,10 @@ export default function Navbar() {
       <AnimatePresence>
         {servicesOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} transition={{ duration: 0.2 }}
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.2 }}
             onMouseLeave={() => setServicesOpen(false)}
             className="hidden lg:block absolute top-full left-0 right-0 bg-[#0e0f11]/95 backdrop-blur-xl border-b border-white/5"
           >
@@ -156,10 +193,14 @@ export default function Navbar() {
                     className="group flex items-center justify-between p-4 rounded-sm hover:bg-white/5 border border-transparent hover:border-[#24a1db]/20 transition-all duration-200"
                   >
                     <div>
-                      <div className="font-heading font-semibold text-white text-sm group-hover:text-[#24a1db] transition-colors">{service.label}</div>
-                      <div className="text-xs text-white/30 mt-0.5 font-body">{service.tag}</div>
+                      <div className="font-heading font-semibold text-white text-sm group-hover:text-[#24a1db] transition-colors">
+                        {service.label}
+                      </div>
+                      <div className="text-xs text-white/30 mt-0.5 font-body">
+                        {service.tag}
+                      </div>
                     </div>
-                    <ArrowUpRight className="w-4 h-4 text-white/20 group-hover:text-[#24a1db] transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                    <ArrowUpRight className="w-4 h-4 text-white/20 group-hover:text-[#24a1db]" />
                   </Link>
                 ))}
               </div>
@@ -172,28 +213,44 @@ export default function Navbar() {
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} exit={{ opacity: 0, height: 0 }}
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
             className="lg:hidden bg-[#0b0b0d]/98 backdrop-blur-xl border-b border-white/5"
           >
             <div className="px-6 py-8 space-y-6">
               {navLinks.map((link) => (
-                <a key={link.label} href={link.href} onClick={() => setMobileOpen(false)}
-                  className="block text-base font-heading font-semibold text-white/70 hover:text-white tracking-widest transition-colors">
+                <a
+                  key={link.label}
+                  href={link.href}
+                  onClick={(e) => {
+                    handleNavClick(e, link.href);
+                    setMobileOpen(false);
+                  }}
+                  className="block text-base font-heading font-semibold text-white/70 hover:text-white tracking-widest transition-colors"
+                >
                   {link.label}
                 </a>
               ))}
+
               <div className="pt-4 border-t border-white/5 space-y-3">
                 <div className="flex gap-2">
                   {SUPPORTED_LANGS.map((code) => (
-                    <button key={code} onClick={() => switchLang(code)}
+                    <button
+                      key={code}
+                      onClick={() => switchLang(code)}
                       className={`px-3 py-1.5 text-xs font-body font-bold rounded-sm border transition-all ${
-                        lang === code ? 'border-[#24a1db] text-[#24a1db]' : 'border-white/10 text-white/40 hover:text-white/70'
-                      }`}>
+                        lang === code
+                          ? 'border-[#24a1db] text-[#24a1db]'
+                          : 'border-white/10 text-white/40 hover:text-white/70'
+                      }`}
+                    >
                       {code}
                     </button>
                   ))}
                 </div>
-                <a href="#kontakt" onClick={() => setMobileOpen(false)}>
+
+                <a href="/#kontakt" onClick={(e) => handleNavClick(e, '/#kontakt')}>
                   <button className="w-full py-4 bg-[#24a1db] text-black font-heading font-black text-sm tracking-widest rounded-sm">
                     {t.nav.cta}
                   </button>
