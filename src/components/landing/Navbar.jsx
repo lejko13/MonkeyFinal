@@ -56,11 +56,11 @@ export default function Navbar() {
     if (el) el.scrollIntoView({ behavior: 'smooth' });
   };
 
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 30);
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  // useEffect(() => {
+  //   const handleScroll = () => setScrolled(window.scrollY > 30);
+  //   window.addEventListener('scroll', handleScroll, { passive: true });
+  //   return () => window.removeEventListener('scroll', handleScroll);
+  // }, []);
 
   useEffect(() => {
     const handleClickOutside = (e) => {
@@ -74,9 +74,9 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${
-      scrolled ? 'bg-[#0b0b0d]/90 backdrop-blur-xl border-b border-white/5' : 'bg-transparent'
-    }`}>
+    <nav className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 
+      bg-[#0b0b0d]/90 backdrop-blur-xl border-b border-white/5' 
+    `}>
       <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
         <div className="flex items-center justify-between h-[72px]" ref={dropdownRef}>
           
@@ -234,7 +234,7 @@ export default function Navbar() {
               ))}
 
               <div className="pt-4 border-t border-white/5 space-y-3">
-                <div className="flex gap-2">
+                <div className="flex gap-2 pb-5">
                   {SUPPORTED_LANGS.map((code) => (
                     <button
                       key={code}

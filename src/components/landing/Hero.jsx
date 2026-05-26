@@ -87,7 +87,7 @@ export default function Hero() {
               </motion.button>
             </a>
           </motion.div>
-
+{/* 
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.75 }} className="flex items-center gap-4 mt-12">
             <div className="flex -space-x-2">
               {AVATARS.map((src, i) => (
@@ -100,7 +100,7 @@ export default function Hero() {
                 <span className="text-white font-medium">150+</span> {h.socialProof}
               </div>
             </div>
-          </motion.div>
+          </motion.div> */}
         </div>
       </div>
 
