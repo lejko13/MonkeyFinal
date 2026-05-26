@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, ChevronDown } from 'lucide-react';
 import { useLang } from '../../lib/LangContext';
+import { useMediaQuery } from "react-responsive";
 
 const AVATARS = [
   'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=64&h=64&fit=crop&crop=face',
@@ -10,7 +11,11 @@ const AVATARS = [
   'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=64&h=64&fit=crop&crop=face',
 ];
 
+
+
+
 export default function Hero() {
+    const isMobile = useMediaQuery({ maxWidth: 768 });
   const { t } = useLang();
   const h = t.hero;
   const canvasRef = useRef(null);
@@ -74,17 +79,38 @@ export default function Hero() {
 
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.55 }} className="flex flex-col sm:flex-row gap-3">
             <a href="#kontakt">
-              <motion.button whileHover={{ scale: 1.03, boxShadow: '0 0 40px rgba(36,161,219,0.35)' }} whileTap={{ scale: 0.97 }}
-                className="group flex items-center gap-3 px-8 py-4 bg-[#24a1db] text-black font-heading font-black text-sm tracking-widest rounded-sm transition-all duration-200">
-                {h.ctaPrimary}
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </motion.button>
+            <motion.button
+  whileHover={
+    !isMobile
+      ? { scale: 1.03, boxShadow: '0 0 40px rgba(36,161,219,0.35)' }
+      : {}
+  }
+  whileTap={{ scale: 0.97 }}
+  className="group flex items-center gap-3 px-8 py-4 bg-[#24a1db] text-black font-heading font-black text-sm tracking-widest rounded-sm transition-all duration-200"
+>
+  {h.ctaPrimary}
+
+  <ArrowRight
+    className={`w-4 h-4 transition-transform ${
+      !isMobile ? 'group-hover:translate-x-1' : ''
+    }`}
+  />
+</motion.button>
             </a>
             <a href="#projekty">
-              <motion.button whileHover={{ scale: 1.02, borderColor: 'rgba(255,255,255,0.3)' }} whileTap={{ scale: 0.98 }}
-                className="flex items-center gap-3 px-8 py-4 border border-white/10 text-white font-heading font-bold text-sm tracking-widest rounded-sm hover:bg-white/5 transition-all duration-200">
-                {h.ctaSecondary}
-              </motion.button>
+            <motion.button
+  whileHover={
+    !isMobile
+      ? { scale: 1.02, borderColor: 'rgba(255,255,255,0.3)' }
+      : {}
+  }
+  whileTap={{ scale: 0.98 }}
+  className={`flex items-center gap-3 px-8 py-4 border border-white/10 text-white font-heading font-bold text-sm tracking-widest rounded-sm transition-all duration-200 ${
+    !isMobile ? 'hover:bg-white/5' : ''
+  }`}
+>
+  {h.ctaSecondary}
+</motion.button>
             </a>
           </motion.div>
 {/* 

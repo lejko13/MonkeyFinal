@@ -5,10 +5,13 @@ import { Link } from 'react-router-dom';
 import { getProjects } from '../../lib/projectsData';
 import { useLang } from '../../lib/LangContext';
 
+import { useMediaQuery } from "react-responsive";
 export default function Projects() {
   const { t } = useLang();
   const projects = getProjects(t);
   const FILTERS = t.projects.filters;
+
+      const isMobile = useMediaQuery({ maxWidth: 768 });
   const [activeFilter, setActiveFilter] = useState(FILTERS[0]);
   const scrollRef = useRef(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
@@ -63,7 +66,7 @@ export default function Projects() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-heading font-black text-[clamp(36px,5vw,72px)] leading-[0.95] tracking-tight"
+            className="font-heading font-black text-[clamp(36px,5vw,72px)] leading-[1.2] tracking-tight"
           >
             <span className="text-white">{t.projects.heading1} </span>
             <span className="text-[#24a1db]">{t.projects.heading2}</span>
@@ -88,20 +91,22 @@ export default function Projects() {
 
         {/* Filters */}
         <div className="flex gap-2 mb-8 flex-wrap">
-          {FILTERS.map(f => (
-            <button
-              key={f}
-              onClick={() => setActiveFilter(f)}
-              className={`px-4 py-2 rounded-full text-xs font-body font-semibold tracking-wide transition-all duration-200 ${
-                activeFilter === f
-                  ? 'bg-[#24a1db] text-black'
-                  : 'border border-white/10 text-white/40 hover:text-white hover:border-white/30'
-              }`}
-            >
-              {f}
-            </button>
-          ))}
-        </div>
+  {FILTERS.map(f => (
+    <button
+      key={f}
+      onClick={() => setActiveFilter(f)}
+      className={`px-4 py-2 rounded-full text-xs font-body font-semibold tracking-wide transition-all duration-200 ${
+        activeFilter === f
+          ? 'bg-[#24a1db] text-black'
+          : isMobile
+            ? 'border border-white/10 text-white/40'
+            : 'border border-white/10 text-white/40 hover:text-white hover:border-white/30'
+      }`}
+    >
+      {f}
+    </button>
+  ))}
+</div>
 
         {/* Horizontal scroll */}
         <div
@@ -141,22 +146,34 @@ export default function Projects() {
               className="flex-shrink-0 w-[300px] lg:w-[340px]"
             >
               <Link
-                to={`/${project.id}`}
-                className="group block rounded-sm overflow-hidden bg-[#111214] border border-white/5 hover:border-[#24a1db]/30 transition-colors duration-300"
-                draggable={false}
-              >
+  to={`/${project.id}`}
+  className={`group block rounded-sm overflow-hidden bg-[#111214] border transition-colors duration-300 ${
+    isMobile
+      ? 'border-[#24a1db]/30'
+      : 'border-white/5 hover:border-[#24a1db]/30'
+  }`}
+  draggable={false}
+>
                 {/* Image */}
                 <div className="relative h-52 overflow-hidden">
                   <img
-                    src={project.image}
-                    alt={project.name}
-                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]"
-                    draggable={false}
-                  />
+  src={project.image}
+  alt={project.name}
+  className={`w-full h-full object-cover transition-transform duration-700 ease-out ${
+    !isMobile ? 'group-hover:scale-[1.05]' : 'scale-[1.05]'
+  }`}
+  draggable={false}
+/>
                   {/* Gradient overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-[#111214] via-transparent to-transparent" />
                   {/* Blue overlay on hover */}
-                  <div className="absolute inset-0 bg-[#24a1db]/0 group-hover:bg-[#24a1db]/8 transition-colors duration-500" />
+                <div
+  className={`absolute inset-0 transition-colors duration-500 ${
+    isMobile
+      ? 'bg-[#24a1db]/8'
+      : 'bg-[#24a1db]/0 group-hover:bg-[#24a1db]/8'
+  }`}
+/>
 
                   {/* Year */}
                   <div className="absolute top-3 right-3 px-2 py-1 bg-black/50 backdrop-blur-sm rounded-sm text-[10px] font-body font-bold text-white/60 border border-white/10">
@@ -176,12 +193,24 @@ export default function Projects() {
                 <div className="p-5">
                   <div className="flex items-start justify-between">
                     <div>
-                      <h3 className="font-heading font-bold text-white text-lg group-hover:text-[#24a1db] transition-colors duration-200">
+                     <h3
+  className={`font-heading font-bold text-lg transition-colors duration-200 ${
+    isMobile
+      ? 'text-[#24a1db]'
+      : 'text-white group-hover:text-[#24a1db]'
+  }`}
+>
                         {project.name}
                       </h3>
                       <p className="text-xs text-white/40 font-body mt-0.5">{project.category}</p>
                     </div>
-                    <div className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center text-white/30 group-hover:bg-[#24a1db] group-hover:border-[#24a1db] group-hover:text-black transition-all duration-200 flex-shrink-0">
+                   <div
+  className={`w-8 h-8 rounded-full flex items-center justify-center transition-all duration-200 flex-shrink-0 ${
+    isMobile
+      ? 'bg-[#24a1db] border-[#24a1db] text-black'
+      : 'border border-white/10 text-white/30 group-hover:bg-[#24a1db] group-hover:border-[#24a1db] group-hover:text-black'
+  }`}
+>
                       <ArrowUpRight className="w-3.5 h-3.5" />
                     </div>
                   </div>
