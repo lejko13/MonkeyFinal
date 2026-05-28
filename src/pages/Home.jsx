@@ -21,7 +21,7 @@ export default function Home() {
       <Projects />
       <Process />
       <Testimonials />
-      <Team />
+      {/* <Team /> */}
       <FAQ />
       <CTASection />
       <Footer />

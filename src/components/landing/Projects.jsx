@@ -94,7 +94,8 @@ export default function Projects() {
   {FILTERS.map(f => (
     <button
       key={f}
-      onClick={() => setActiveFilter(f)}
+      onClick={() => {setActiveFilter(f),console.log(f);
+      }}
       className={`px-4 py-2 rounded-full text-xs font-body font-semibold tracking-wide transition-all duration-200 ${
         activeFilter === f
           ? 'bg-[#24a1db] text-black'

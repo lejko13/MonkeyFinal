@@ -75,7 +75,7 @@ export default function Navbar() {
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 
-      bg-[#0b0b0d]/90 backdrop-blur-xl border-b border-white/5' 
+      bg-black backdrop-blur-xl border-b border-white/5' 
     `}>
       <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
         <div className="flex items-center justify-between h-[72px]" ref={dropdownRef}>
@@ -181,10 +181,10 @@ export default function Navbar() {
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
             onMouseLeave={() => setServicesOpen(false)}
-            className="hidden lg:block absolute top-full left-0 right-0 bg-[#0e0f11]/95 backdrop-blur-xl border-b border-white/5"
+            className="hidden lg:block absolute top-full left-0 right-0 bg-black  border-b border-white/5"
           >
             <div className="max-w-[1400px] mx-auto px-10 py-8">
-              <div className="grid grid-cols-3 gap-4">
+              <div className="grid grid-cols-2 gap-4">
                 {serviceLinks.map((service) => (
                   <Link
                     key={service.href}
