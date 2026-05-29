@@ -38,8 +38,7 @@ results: [
 duration: '3 týždne',
 category: 'Web / Fitness',
 
-desc: 'Kompletný moderný web pre súkromnú posilňovňu Cvič Sám.',
-
+desc: 'Kompletný moderný web pre súkromnú posilňovňu Cvič Sám.', 
 challenge:
   'Cieľom bolo vytvoriť moderný a dynamický web, ktorý jasne vysvetlí koncept súkromnej posilňovne a zjednoduší rezervácie.',
 
@@ -99,8 +98,8 @@ url: 'https://www.kkfol.com',
 
   category: 'Web / Automotive',
 
-  desc:
-    'Kompletný moderný web pre značku KFOL zameranú na polepy vozidiel a branding.',
+desc:
+  'Moderný web pre značku KFOL zameranú na polepy vozidiel, branding a prémiovú prezentáciu služieb.',
 
   challenge:
     'Cieľom bolo vytvoriť agresívny a prémiový web, ktorý odprezentuje kvalitu polepov a vizuálnu identitu značky.',
@@ -295,108 +294,217 @@ url: 'https://www.kkfol.com',
     'Navrhli sme responzívny web s výraznou typografiou, dynamickými farbami a intuitívnym používateľským zážitkom.',
 },
 
+// timo
+{
+id: 'timo-interior',
 
- 
- 
-  {
-    id: 'hotel-pod-lipou',
-    name: 'Hotel Pod Lipou',
-    year: '2025',
-    tags: ['Web', 'Branding'],
-    image: '/project/moja.webp',
-    gallery: [
-      'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1200&q=80',
-      'https://images.unsplash.com/photo-1551882547-ff40c4a49f93?w=1200&q=80',
-      'https://images.unsplash.com/photo-1445019980597-93fa8acb246c?w=1200&q=80',
-    ],
-    url: 'https://hotelpodlipou.sk',
-    client: 'Hotel Pod Lipou',
-    tech: ['Next.js', 'Booking.com API', 'Cloudinary', 'Mailchimp'],
-    services: ['Web Design', 'Branding', 'Booking Integration', 'Photography Direction'],
-  },
-  {
-    id: 'begam',
-    name: 'Begam',
-    year: '2024',
-    tags: ['Web', 'E-shop'],
-    image: '/project/cvicsam.webp',
-    gallery: [
-      'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=1200&q=80',
-      'https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=1200&q=80',
-      'https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?w=1200&q=80',
-    ],
-    url: 'https://begam.sk',
-    client: 'Begam SK',
-    tech: ['WooCommerce', 'React', 'Algolia Search', 'Redis'],
-    services: ['E-commerce', 'UX Design', 'Development', 'Performance Optimization'],
-  },
-  {
-    id: 'amg-security',
-    name: 'AMG Security',
-    year: '2024',
-    tags: ['Web', 'SEO'],
-    image: "/project/timo.webp",
-    gallery: [
-      'https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=1200&q=80',
-      'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80',
-      'https://images.unsplash.com/photo-1510915361894-db8b60106cb1?w=1200&q=80',
-    ],
-    url: 'https://amgsecurity.sk',
-    client: 'AMG Security s.r.o.',
-    tech: ['WordPress', 'Yoast SEO', 'Google Tag Manager', 'HubSpot'],
-    services: ['Web Design', 'SEO', 'Development', 'Google Ads Setup'],
-  },
-    {
-    id: 'nasa-kaviaren',
-    name: 'Naša kaviareň',
-    year: '2025',
-    tags: ['Web', 'E-shop'],
-    image: '/project/nasa.webp',
-    gallery: [
-      'https://images.unsplash.com/photo-1555421689-491a97ff2040?w=1200&q=80',
-      'https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=1200&q=80',
-      'https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?w=1200&q=80',
-    ],
-    url: 'https://aardwark.com',
-    client: 'Aardwark s.r.o.',
-    tech: ['Next.js', 'React', 'Stripe', 'Sanity CMS'],
-    services: ['Web Design', 'E-commerce', 'SEO', 'UX/UI'],
+name: 'FormaCasa Interior Design',
+year: '2026',
 
-    process: 'Analýza → Dizajn → Web → Sociálne siete → Spustenie',
-results: [
-  'Moderný web pre kaviareň',
-  'Lepšia prezentácia značky',
-  'Podpora sociálnych sietí',
+tags: ['Web', 'Interior Design'],
+
+image: '/project/web/timo/timo.webp',
+
+gallery: [
+'/project/web/timo/timo.webp',
+'/project/web/timo/timo1.webp',
+'/project/web/timo/timo2.webp',
+'/project/web/timo/timo3.webp',
+'/project/web/timo/timo4.webp',
+'/project/web/timo/timo5.webp',
+'/project/web/timo/timo6.webp',
 ],
-duration: '2 týždne',
-category: 'Web / Kaviareň',
-desc: 'Web a sociálne siete pre kaviareň naša v Kežmarku.',
-challenge: 'Vytvoriť čistú online prezentáciu pre lokálnu kaviareň.',
-solution: 'Navrhli sme moderný web s dôrazom na atmosféru, kontakt a sociálne siete.',
+
+preklik: 'https://timofinal.vercel.app/',
+
+  url: 'https://www.timo.com',
+
+
+client: 'Timothy Smon – FormaCasa',
+
+tech: [
+'Next.js',
+'React',
+'TailwindCSS',
+'Framer Motion',
+],
+
+services: [
+'Web Design',
+'Development',
+'Branding',
+'SEO',
+],
+
+process:
+'Analýza → Wireframe → Dizajn → Vývoj → Optimalizácia → Spustenie',
+
+results: [
+'Prémiová online prezentácia dizajnérskeho štúdia',
+'Moderný a elegantný vizuálny štýl',
+'Responzívny web optimalizovaný pre všetky zariadenia',
+'Lepšia prezentácia realizácií a služieb',
+],
+
+duration: '4 týždne',
+
+category: 'Web / Interior Design',
+
+desc:
+'Moderný prezentačný web pre interiérové a exteriérové dizajnové štúdio FormaCasa zameraný na profesionálnu prezentáciu realizácií, služieb a budovanie dôveryhodnej značky.',
+
+challenge:
+'Vytvoriť luxusný a profesionálny web, ktorý efektívne odprezentuje portfólio realizácií, kvalitu služieb a jedinečný prístup štúdia k interiérovému dizajnu.',
+
+solution:
+'Navrhol a vyvinul som minimalistický responzívny web s dôrazom na kvalitné fotografie, plynulé animácie, moderný používateľský zážitok a prémiový vizuálny štýl reflektujúci charakter značky FormaCasa.',
+
+location: 'Slovensko',
+
+business: {
+brand: 'FormaCasa',
+owner: 'Timothy Smon',
+industry: 'Interior & Exterior Design Studio',
+phone: '+421 917 147 675',
+email: '[tsdesigncompanybusiness@gmail.com](mailto:tsdesigncompanybusiness@gmail.com)',
+instagram: '@ts.dsgformacasa',
+website: 'https://left-champagne-285439.framer.app/cennik21',
+},
+},
 
 
 
+// poprad
 
+{
+  id: 'poprad-design',
 
-  },
+  name: 'Poprad Design',
+  year: '2026',
 
+  tags: ['Web', 'Interior Design'],
 
-  {
-    id: 'panorama-golf',
-    name: 'Panorama Golf',
-    year: '2024',
-    tags: ['Web', 'Branding'],
-    image: '/project/lenka.webp',
-    gallery: [
-      'https://images.unsplash.com/photo-1593111774240-d529f12cf4bb?w=1200&q=80',
-      'https://images.unsplash.com/photo-1587174135475-8e0e2494b46e?w=1200&q=80',
-      'https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=1200&q=80',
-    ],
-    url: 'https://panoramagolf.sk',
-    client: 'Panorama Golf Resort',
-    tech: ['Next.js', 'Tailwind CSS', 'Prismic CMS', 'Google Maps API'],
-    services: ['Web Design', 'Branding', 'Booking System', 'Photography'],
-  },
+  image: '/project/web/poprad/poprad.webp',
+
+  gallery: [
+    '/project/web/poprad/poprad.webp',
+    '/project/web/poprad/poprad1.webp',
+    '/project/web/poprad/poprad2.webp',
+    '/project/web/poprad/poprad3.webp',
+    '/project/web/poprad/poprad4.webp',
+    '/project/web/poprad/poprad5.webp',
+  ],
+
+  preklik: 'https://poprad-design.vercel.app/',
+
+  url: 'https://www.popraddesign.com',
+
+  client: 'Poprad Design',
+
+  tech: [
+    'Next.js',
+    'React',
+    'TailwindCSS',
+    'Framer Motion',
+  ],
+
+  services: [
+    'Web Design',
+    'Development',
+    'Branding',
+    'SEO',
+  ],
+
+  process:
+    'Analýza → Wireframe → Dizajn → Vývoj → Optimalizácia → Spustenie',
+
+  results: [
+    'Prémiová prezentácia interiérov',
+    'Moderný minimalistický vizuál',
+    'Rýchly responzívny web',
+  ],
+
+  duration: '4 týždne',
+
+  category: 'Web / Interior Design',
+
+  desc:
+    'Moderný prezentačný web pre interiérové štúdio Poprad Design zameraný na elegantné realizácie a moderný dizajn.',
+
+  challenge:
+    'Cieľom bolo vytvoriť luxusný a minimalistický web, ktorý kvalitne odprezentuje interiérové projekty a služby štúdia.',
+
+  solution:
+    'Navrhli sme responzívny web s dôrazom na čistý dizajn, kvalitné vizuály a intuitívnu navigáciu.',
+},
+
+// moj
+{
+  id: 'moj-booking',
+
+  name: 'Booking App',
+  year: '2026',
+
+  tags: ['Web App', 'UI/UX'],
+
+  image:  '/project/web/moj/moj9.webp',
+
+  gallery: [
+ '/project/web/moj/moj9.webp',
+    '/project/web/moj/moj2.webp',
+    '/project/web/moj/moj3.webp',
+    '/project/web/moj/moj4.webp',
+    '/project/web/moj/moj5.webp',
+    '/project/web/moj/moj6.webp',
+    '/project/web/moj/moj7.webp',
+    '/project/web/moj/moj8.webp',
+    '/project/web/moj/moj9.webp',
+    '/project/web/moj/moj10.webp',
+  ],
+
+  preklik: 'https://aplikacia-sepia.vercel.app/',
+
+  url: 'https://www.mojbooking.com',
+
+  client: 'MOJ Booking',
+
+  tech: [
+    'Next.js',
+    'React',
+    'TailwindCSS',
+    'Framer Motion',
+  ],
+
+  services: [
+    'UI/UX Design',
+    'Web App Design',
+    'Development',
+    'SEO',
+  ],
+
+  process:
+    'Analýza → Wireframe → UI Design → Vývoj → Optimalizácia → Spustenie',
+
+  results: [
+    'Moderný booking systém',
+    'Čistý minimalistický dashboard',
+    'Responzívna web aplikácia',
+  ],
+
+  duration: '5 týždňov',
+
+  category: 'Web App / Booking Platform',
+
+  desc:
+    'Moderný dizajn webovej aplikácie inšpirovanej platformami ako Airbnb so zameraním na rezervácie, správu nehnuteľností a intuitívny používateľský zážitok.',
+
+  challenge:
+    'Cieľom bolo vytvoriť prehľadnú a modernú booking platformu s jednoduchou správou rezervácií, kalendárom a intuitívnym dashboardom.',
+
+  solution:
+    'Navrhli sme minimalistickú web aplikáciu s čistým UI, modernými komponentmi a optimalizovaným používateľským flow pre rezervácie aj správu apartmánov.',
+},
+ 
 
 
 
@@ -405,7 +513,7 @@ solution: 'Navrhli sme moderný web s dôrazom na atmosféru, kontakt a sociáln
   id: 'pixelate-agency',
   name: 'Pixelate Studio',
   year: '2026',
-
+  preklik: 'https://www.lenihoncarova.com/',
   tags: ['Dizajn', 'Web Design', 'UI/UX'],
 
   image: '/project/grafika/agency/mocukupnahladageny.webp',
@@ -414,6 +522,7 @@ solution: 'Navrhli sme moderný web s dôrazom na atmosféru, kontakt a sociáln
     '/project/grafika/agency/mocukupnahladageny.webp',
     '/project/grafika/agency/agencymockupnahlad.webp',
     '/project/grafika/agency/agencynahladwebu.webp',
+  '/project/grafika/agency/logo.webp'
   ],
 
   url: 'https://pixelate.sk',
@@ -469,14 +578,15 @@ solution: 'Navrhli sme moderný web s dôrazom na atmosféru, kontakt a sociáln
   image: '/project/grafika/donut/mocupk.webp',
 
   gallery: [
-    '/public/project/grafika/donut/mocupk.webp',
-    '/public/project/grafika/donut/donuteriamanua;.webp',
-      '/public/project/grafika/donut/nahladwebudonut.webp',
+    '/project/grafika/donut/mocupk.webp',
+    '/project/grafika/donut/donuteriamanua;.webp',
+      '/project/grafika/donut/nahladwebudonut.webp',
+       '/project/grafika/donut/logo.webp'
    
   ],
 
   url: 'https://donuteria.sk',
-
+ preklik: 'https://www.lenihoncarova.com/',
   client: 'Donuteria',
 
   tech: [
@@ -525,12 +635,13 @@ solution: 'Navrhli sme moderný web s dôrazom na atmosféru, kontakt a sociáln
 
   tags: ['Dizajn', 'Web Design', 'UI/UX'],
 
-  image: '/public/project/grafika/burger/mockupburger.webp',
+  image: '/project/grafika/burger/mockupburger.webp',
 
   gallery: [
-    '/public/project/grafika/burger/mockupburger.webp',
-    '/public/project/grafika/burger/logomanulaburger.webp',
-    '/public/project/grafika/burger/nahldawebuburger.webp',
+    '/project/grafika/burger/mockupburger.webp',
+    '/project/grafika/burger/logomanulaburger.webp',
+    '/project/grafika/burger/nahldawebuburger.webp',
+         '/project/grafika/burger/logo.webp'
   ],
 
   url: 'https://burgerys.sk',
@@ -575,20 +686,20 @@ solution: 'Navrhli sme moderný web s dôrazom na atmosféru, kontakt a sociáln
     'Navrhli sme kompletný branding vrátane loga, vizuálnej identity, menu dizajnu, web rozhrania a marketingových materiálov.',
 },
 // vodat
-
 {
   id: 'vodoexpert',
   name: 'Vodo Expert',
   year: '2026',
-
+ preklik: 'https://www.lenihoncarova.com/',
   tags: ['Dizajn', 'UI/UX', 'Branding'],
 
-  image: '/public/project/grafika/vodar/mockuupvodar.webp',
+  image: '/project/grafika/vodar/mockuupvodar.webp',
 
   gallery: [
-     '/public/project/grafika/vodar/mockuupvodar.webp',
-    '/public/project/grafika/vodar/vodarlogomanual.webp',
-    '/public/project/grafika/vodar/vodarnahladweb.webp',
+     '/project/grafika/vodar/mockuupvodar.webp',
+    '/project/grafika/vodar/vodarlogomanual.webp',
+    '/project/grafika/vodar/vodarnahladweb.webp',
+     '/project/grafika/vodar/logo.webp'
    
    
 
@@ -634,8 +745,254 @@ solution: 'Navrhli sme moderný web s dôrazom na atmosféru, kontakt a sociáln
 
   solution:
     'Navrhli sme kompletný branding vrátane web dizajnu, servisných sekcií, responzívneho UI systému a vizuálnej komunikácie značky.',
-}
+},
+
+// socialne sitete
+// nasa
+{
   
+
+  name: 'Naša - Káva & Bistro',
+  id: 'nasacaffe',
+
+  year: '2026',
+
+  tags: ['Sociálne siete', 'Instagram posty'],
+
+  image: '/project/socialne/nasa/logo.webp',
+
+  gallery: [
+    '/project/socialne/nasa/a1.webp',
+    '/project/socialne/nasa/a12.webp',
+    '/project/socialne/nasa/a8.webp',
+    '/project/socialne/nasa/a2.webp',
+    '/project/socialne/nasa/a6.webp',
+    '/project/socialne/nasa/a11.webp',
+    '/project/socialne/nasa/a13.webp',
+    '/project/socialne/nasa/a14.webp',
+    '/project/socialne/nasa/a3.webp',
+    '/project/socialne/nasa/a4.webp',
+    '/project/socialne/nasa/a5.webp',
+    '/project/socialne/nasa/a7.webp',
+    '/project/socialne/nasa/a9.webp',
+    '/project/socialne/nasa/a10.webp',
+    '/project/socialne/nasa/a15.webp',
+    '/project/socialne/nasa/a16.webp',
+    '/project/socialne/nasa/a17.webp',
+    '/project/socialne/nasa/a18.webp',
+    '/project/socialne/nasa/a19.webp',
+    '/project/socialne/nasa/a20.webp',
+    '/project/socialne/nasa/a21.webp',
+    '/project/socialne/nasa/a22.webp',
+    '/project/socialne/nasa/a23.webp',
+    '/project/socialne/nasa/a24.webp',
+    '/project/socialne/nasa/a25.webp',
+    '/project/socialne/nasa/a26.webp',
+    '/project/socialne/nasa/a27.webp',
+  ],
+
+  url: 'https://instagram.com',
+
+  client: 'Naša Caffé',
+
+  tech: [
+    'Figma',
+    'Adobe Illustrator',
+    'Photoshop',
+  ],
+
+  services: [
+    'Social Media Design',
+    'Instagram Post Design',
+    'Content Design',
+    'Brand Visuals',
+    'Marketing Graphics',
+  ],
+
+  process: 'Analýza značky → Návrh vizuálov → Dizajn postov → Finalizácia',
+
+  results: [
+    'Moderný a jednotný vizuál sociálnych sietí',
+    'Atraktívne Instagram posty pre kaviareň',
+    'Zvýšenie vizuálnej identity značky',
+    'Konzistentná komunikácia na sociálnych sieťach',
+  ],
+
+  duration: '1 týždeň',
+
+  category: 'Social Media Design',
+
+  desc: 'Návrh kreatívnych vizuálov a Instagram postov pre kaviareň Naša Caffé zameraných na modernú a estetickú prezentáciu produktov.',
+
+  challenge:
+    'Vytvoriť vizuálne atraktívne sociálne siete, ktoré budú pôsobiť moderne, minimalisticky a zároveň zvýraznia produkty kaviarne.',
+
+  solution:
+    'Navrhol som sériu moderných Instagram postov a vizuálov s dôrazom na jednotnú identitu značky, produktovú prezentáciu a estetický obsah pre sociálne siete.',
+},
+// sotogastagno
+{
+name: 'Sotto Castagno',
+id: 'sottocastagno',
+
+year: '2026',
+
+tags: ['Sociálne siete', 'Instagram posty'],
+
+image: '/project/socialne/soto/soto.webp',
+
+gallery: [
+  '/project/socialne/soto/b19.webp',
+  '/project/socialne/soto/b10.webp',
+  '/project/socialne/soto/b16.webp',
+  '/project/socialne/soto/b11.webp',
+  '/project/socialne/soto/b12.webp',
+  '/project/socialne/soto/b13.webp',
+  '/project/socialne/soto/b14.webp',
+  '/project/socialne/soto/b15.webp',
+  '/project/socialne/soto/b16.webp',
+  '/project/socialne/soto/b17.webp',
+  '/project/socialne/soto/b18.webp',
+  '/project/socialne/soto/b19.webp',
+  '/project/socialne/soto/b20.webp',
+
+],
+
+url: 'https://pizzasotto.sk',
+
+client: 'Pizzéria Sotto Castagno',
+
+tech: [
+'Figma',
+'Adobe Illustrator',
+'Photoshop',
+],
+
+services: [
+'Social Media Design',
+'Brand Visuals',
+'Marketing Graphics',
+'Content Design',
+'Advertising Materials',
+],
+
+process: 'Analýza značky → Návrh konceptu → Tvorba vizuálov → Finalizácia',
+
+results: [
+'Moderná prezentácia pizzérie na sociálnych sieťach',
+'Jednotná vizuálna identita značky',
+'Atraktívne reklamné a promo vizuály',
+'Lepšia komunikácia ponuky a akcií',
+],
+
+duration: '1 týždeň',
+
+category: 'Social Media Design',
+
+desc: 'Kompletný návrh grafických materiálov a sociálnych sietí pre pizzériu Sotto Castagno v Spišskej Belej so zameraním na modernú prezentáciu jedál, akcií a značky.',
+
+challenge:
+'Vytvoriť profesionálnu a konzistentnú vizuálnu identitu, ktorá zvýrazní ponuku pizzérie, priláka nových zákazníkov a odlíši značku od konkurencie.',
+
+solution:
+'Navrhol som sériu moderných grafických vizuálov pre sociálne siete, reklamné kampane a marketingové materiály s dôrazom na kvalitnú prezentáciu produktov, jednotný branding a vizuálnu atraktivitu.',
+
+location: 'Spišská Belá, Slovensko',
+
+business: {
+rating: '4.5',
+reviews: '117',
+priceRange: '5 – 10 €',
+address: 'Slnečná 122/29, 059 01 Spišská Belá',
+phone: '+421 917 479 885',
+website: 'https://pizzasotto.sk',
+},
+},
+// timo
+
+{
+name: 'Timothy Smon – FormaCasa',
+id: 'formacasa',
+
+year: '2026',
+
+tags: ['Sociálne siete', 'Instagram posty'],
+
+image: '/project/socialne/timo/logo.webp',
+
+
+
+
+gallery: [
+'/project/socialne/timo/c1.webp',
+  '/project/socialne/timo/c2.webp',
+  '/project/socialne/timo/c3.webp',
+  '/project/socialne/timo/c4.webp',
+  '/project/socialne/timo/c5.webp',
+  '/project/socialne/timo/c6.webp',
+  '/project/socialne/timo/c7.webp',
+  '/project/socialne/timo/c8.webp',
+  '/project/socialne/timo/c9.webp',
+  '/project/socialne/timo/c10.webp',
+  '/project/socialne/timo/c11.webp',
+  '/project/socialne/timo/c12.webp',
+  '/project/socialne/timo/c13.webp',
+  '/project/socialne/timo/c14.webp',
+],
+url: 'https://instagram.com/ts.dsgformacasa',
+
+client: 'Timothy Smon – FormaCasa',
+
+tech: [
+'Figma',
+'Adobe Illustrator',
+'Photoshop',
+],
+
+services: [
+'Social Media Design',
+'Content Design',
+'Brand Visuals',
+'Instagram Post Design',
+'Marketing Graphics',
+],
+
+process: 'Analýza značky → Návrh vizuálnej identity → Tvorba obsahu → Finalizácia',
+
+results: [
+'Luxusný a konzistentný vizuál sociálnych sietí',
+'Profesionálna prezentácia interiérových projektov',
+'Posilnenie vizuálnej identity značky',
+'Atraktívna komunikácia služieb a realizácií',
+],
+
+duration: '2 týždne',
+
+category: 'Social Media Design',
+
+desc: 'Kompletný návrh sociálnych sietí a vizuálnej komunikácie pre interiérové a exteriérové dizajnové štúdio FormaCasa zamerané na prezentáciu realizácií, dizajnových konceptov a profesionálnych služieb.',
+
+challenge:
+'Vytvoriť elegantný a prémiový vizuálny štýl, ktorý bude odrážať kvalitu interiérového dizajnu a zároveň efektívne prezentovať projekty na sociálnych sieťach.',
+
+solution:
+'Navrhol som sériu moderných a luxusných vizuálov pre Instagram s dôrazom na prezentáciu realizácií, architektonických detailov, branding a budovanie dôveryhodnej značky v oblasti interiérového dizajnu.',
+
+location: 'Slovensko',
+
+business: {
+instagram: '@ts.dsgformacasa',
+followers: '29+',
+industry: 'Interior & Exterior Design Studio',
+phone: '+421 917 147 675',
+email: '[tsdesigncompanybusiness@gmail.com](mailto:tsdesigncompanybusiness@gmail.com)',
+website: 'https://left-champagne-285439.framer.app/cennik21',
+},
+}
+
+
+  
+
 ];
 
 // Merge static meta with translated content from i18n

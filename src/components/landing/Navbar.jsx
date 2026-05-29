@@ -82,11 +82,11 @@ export default function Navbar() {
           
           {/* Logo */}
           <a href="/" className="flex items-center gap-2 z-10">
-            <div className="w-8 h-8 rounded flex items-center justify-center">
+            {/* <div className="w-8 h-8 rounded flex items-center justify-center">
               <img src="/logosvetle.png" alt="MonkeyMedia logo" className="w-6" />
-            </div>
+            </div> */}
             <span className="font-heading font-black text-white text-lg tracking-tight">
-              MONKEY<span className="text-[#24a1db]">MEDIA</span>
+              LEO<span className="text-[#24a1db]"> FUDALY</span>
             </span>
           </a>
 

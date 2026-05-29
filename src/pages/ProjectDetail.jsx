@@ -19,7 +19,15 @@ export default function ProjectDetail() {
   const pd = t.projectDetail;
   const project = getProjectById(id, t);
 
+  // console.log(project.tags);
+
+  const kontrola = project.tags
+  // console.log(kontrola);
+
+
   console.log(project.gallery);
+  
+  
   
   const { prev, next } = getAdjacentProjects(id, t);
 
@@ -117,18 +125,28 @@ const desktopImgHover = isDesktop
             <p className="text-white/50 font-body text-base leading-relaxed mb-6 max-w-lg">
               {project.desc}
             </p>
+{project.preklik ? (
+  <a
+    href={project.preklik}
+    target="_blank"
+    rel="noopener noreferrer"
+    className={`inline-flex items-center gap-2 text-sm font-heading font-bold text-[#24a1db] ${
+      isDesktop ? "hover:text-white transition-colors group" : ""
+    }`}
+  >
+    <ExternalLink className="w-4 h-4" />
+    {!kontrola?.includes("Sociálne siete")
+      ? project.url.replace("https://", "").replace("http://", "")
+      : "Otvoriť sociálne siete"}
+  </a>
+) : (
+  <span className="inline-flex items-center gap-2 text-sm font-heading font-bold text-[#24a1db]">
+  Pozrieť si náhľad
+  </span>
+)}
+      
 
-           <a
-  href={project.preklik}
-  target="_blank"
-  rel="noopener noreferrer"
-  className={`inline-flex items-center gap-2 text-sm font-heading font-bold text-[#24a1db] ${
-    isDesktop ? "hover:text-white transition-colors group" : ""
-  }`}
->
-  <ExternalLink className="w-4 h-4" />
-  {project.url.replace("https://", "").replace("http://", "")}
-</a>
+ 
           </motion.div>
 
           <motion.div
@@ -156,20 +174,42 @@ const desktopImgHover = isDesktop
         </div>
       </section>
 
-      <motion.div
-        initial={{ opacity: 0, scale: 0.98 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.8, delay: 0.2 }}
-        className="px-6 lg:px-10 max-w-[1400px] mx-auto mb-24"
-      >
-        <div className="rounded-sm overflow-hidden aspect-video">
-          <img
-            src={project.gallery[0]}
-            alt={project.name}
-            className="w-full h-full object-cover"
-          />
-        </div>
-      </motion.div>
+     <motion.div
+  initial={{ opacity: 0, scale: 0.98 }}
+  animate={{ opacity: 1, scale: 1 }}
+  transition={{ duration: 0.8, delay: 0.2 }}
+  className="px-6 lg:px-10 max-w-[1400px] mx-auto mb-24"
+>
+   {project.preklik ? (
+  <div className="rounded-sm overflow-hidden">
+    <img
+      src={project.gallery[0]}
+      alt={project.name}
+      className="w-full h-auto object-cover"
+    />
+  </div>
+) : (
+
+<div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+  {project.gallery.slice(0, 4).map((img, i) => (
+    <div
+      key={i}
+      onClick={() => {
+        setLightboxOpen(true)
+        setActiveIndex(i)
+      }}
+      className="rounded-sm overflow-hidden aspect-[3/4]"
+    >
+      <img
+        src={img}
+        alt=""
+        className={`w-full h-full object-cover rounded-sm ${desktopImgHover}`}
+      />
+    </div>
+  ))}
+</div>
+)}
+</motion.div>
 
       <section className="px-6 lg:px-10 max-w-[1400px] mx-auto mb-24">
         <div className="grid lg:grid-cols-2 gap-16">
@@ -209,25 +249,50 @@ const desktopImgHover = isDesktop
       </section>
 
       <section className="px-6 lg:px-10 max-w-[1400px] mx-auto mb-24">
-        <div className="columns-1 md:columns-2 gap-4 space-y-4">
-          {project.gallery.map((img, i) => (
-            <motion.div
-            onClick={() =>  {setLightboxOpen(true),setActiveIndex(i)}}
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="overflow-hidden rounded-2xl break-inside-avoid"
-            >
-              <img
-                src={img}
-                alt=""
-                className={`w-full h-auto object-contain rounded-2xl ${desktopImgHover}`}
-              />
-            </motion.div>
-          ))}
-        </div>
+        {project.preklik ? (
+  <div className="columns-1 md:columns-2 gap-4 space-y-4">
+    {project.gallery.map((img, i) => (
+      <motion.div
+        onClick={() => {
+          setLightboxOpen(true)
+          setActiveIndex(i)
+        }}
+        key={i}
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ delay: i * 0.1 }}
+        className="overflow-hidden rounded-sm break-inside-avoid"
+      >
+        <img
+          src={img}
+          alt=""
+          className={`w-full h-auto object-contain rounded-sm ${desktopImgHover}`}
+        />
+      </motion.div>
+    ))}
+  </div>
+) : (
+  <div className="grid grid-cols-2 md:grid-cols-6 gap-4">
+    {project.gallery.slice(4).map((img, i) => (
+      <div
+        key={i}
+        onClick={() => {
+          setLightboxOpen(true)
+          setActiveIndex(i+4)
+        }}
+        className="rounded-sm overflow-hidden aspect-[3/4]"
+      >
+        <img
+          src={img}
+          alt=""
+          className={`w-full h-full object-cover rounded-sm ${desktopImgHover}`}
+        />
+      </div>
+    ))}
+  </div>
+)}
+      
       </section>
 
       <section className="px-6 lg:px-10 max-w-[1400px] mx-auto mb-24">

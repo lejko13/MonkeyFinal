@@ -73,27 +73,32 @@ export default function ProjectLightbox({
 
 
 
-      <motion.div
-        key={activeIndex}
-        initial={isDesktop ? { opacity: 0, scale: 0.96 } : false}
-        animate={isDesktop ? { opacity: 1, scale: 1 } : {}}
-        exit={isDesktop ? { opacity: 0, scale: 0.96 } : undefined}
-        transition={isDesktop ? { duration: 0.3 } : undefined}
-        className="relative max-w-2xl w-full mx-16 rounded-2xl overflow-hidden"
-        onClick={(e) => e.stopPropagation()}
-      >
-        <img
-          src={image}
-          alt=""
-          className="w-full object-cover max-h-[75vh]"
-        />
-      </motion.div>
+ <motion.div
+  key={activeIndex}
+  initial={isDesktop ? { opacity: 0, scale: 0.96 } : false}
+  animate={isDesktop ? { opacity: 1, scale: 1 } : {}}
+  exit={isDesktop ? { opacity: 0, scale: 0.96 } : undefined}
+  transition={isDesktop ? { duration: 0.3 } : undefined}
+  className="relative w-full max-w-[80vw] mx-6 md:mx-16 flex items-center justify-center"
+  onClick={(e) => e.stopPropagation()}
+>
+  <img
+    src={image}
+    alt=""
+    className="max-w-full max-h-[70vh] w-auto h-auto object-contain"
+  />
+</motion.div> 
+
 <button
   onClick={(e) => {
     e.stopPropagation();
     prev();
   }}
-  className="absolute left-4 top-1/2 -translate-y-1/2 z-10"
+  className={`absolute z-10 ${
+    isDesktop
+      ? "left-4 top-1/2 -translate-y-1/2"
+      : "bottom-20 left-[38%] -translate-x-1/2"
+  }`}
 >
   <div className="w-12 h-12 rounded-xl bg-[#24a1db]/10 border border-[#24a1db]/20 flex items-center justify-center flex-shrink-0 backdrop-blur-sm cursor-pointer">
     <ChevronLeft className="w-4 h-4 text-[#24a1db]" />
@@ -105,7 +110,11 @@ export default function ProjectLightbox({
     e.stopPropagation();
     next();
   }}
-  className="absolute right-4 top-1/2 -translate-y-1/2 z-10"
+  className={`absolute z-10 ${
+    isDesktop
+      ? "right-4 top-1/2 -translate-y-1/2"
+      : "bottom-20 right-[38%] translate-x-1/2"
+  }`}
 >
   <div className="w-12 h-12 rounded-xl bg-[#24a1db]/10 border border-[#24a1db]/20 flex items-center justify-center flex-shrink-0 backdrop-blur-sm cursor-pointer">
     <ChevronRight className="w-4 h-4 text-[#24a1db]" />
@@ -113,12 +122,13 @@ export default function ProjectLightbox({
 </button>
 
    <div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex gap-2">
-  {projects.map((_, i) => (
+ {isDesktop &&
+  projects.map((_, i) => (
     <button
       key={i}
       onClick={(e) => {
-        e.stopPropagation();
-        onNavigate(i);
+        e.stopPropagation()
+        onNavigate(i)
       }}
       className="cursor-pointer"
     >
