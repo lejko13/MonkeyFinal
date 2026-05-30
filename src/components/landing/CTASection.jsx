@@ -26,7 +26,7 @@ export default function CTASection() {
 
   try {
     await emailjs.send(
-    'service_leofudaly',
+  'service_zdvmof',
       'template_d1y0ik3',
       {
         name: form.name,
