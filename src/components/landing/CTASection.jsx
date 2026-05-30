@@ -26,17 +26,17 @@ export default function CTASection() {
 
   try {
     await emailjs.send(
-  'service_zdvmof',
-      'template_d1y0ik3',
-      {
-        name: form.name,
-        company: form.company,
-        email: form.email,
-        phone: form.phone,
-        message: form.message,
-      },
-      'hSOlixX9PjPehxkpU'
-    );
+  'service_zdvvmof',
+  'template_d1y0ik3',
+  {
+    name: form.name,
+    company: form.company,
+    email: form.email,
+    phone: form.phone,
+    message: form.message,
+  },
+  'hSOlixX9PjPehxkpU'
+);
 
     setSubmitted(true);
 
