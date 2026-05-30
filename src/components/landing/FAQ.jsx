@@ -9,7 +9,7 @@ export default function FAQ() {
   const f = t.faq;
   const faqs = t.faqItems || [];
 
-  const [openIndex, setOpenIndex] = useState(null);
+  const [openIndex, setOpenIndex] = useState(0);
 
   const isMobile = useMediaQuery({ maxWidth: 768 });
 
@@ -106,35 +106,25 @@ export default function FAQ() {
                       <Plus className="w-3.5 h-3.5" />
                     )}
                   </div>
+
+                  
                 </button>
 
-                <AnimatePresence>
-                  {openIndex === i && (
-                    <motion.div
-                      initial={
-                        isMobile
-                          ? false
-                          : { height: 0, opacity: 0 }
-                      }
-                      animate={
-                        isMobile
-                          ? {}
-                          : { height: 'auto', opacity: 1 }
-                      }
-                      exit={
-                        isMobile
-                          ? {}
-                          : { height: 0, opacity: 0 }
-                      }
-                    transition={{ duration: 0.3 }}
-                      className="overflow-hidden"
-                    >
-                      <div className="pb-5 pl-9 text-sm text-white/40 font-body leading-relaxed">
-                        {faq.answer}
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+              <AnimatePresence>
+  {openIndex === i && (
+    <motion.div
+      initial={{ height: 0, opacity: 0 }}
+      animate={{ height: 'auto', opacity: 1 }}
+      exit={{ height: 0, opacity: 0 }}
+      transition={{ duration: 0.3 }}
+      className="overflow-hidden"
+    >
+      <div className="pb-5 pl-9 text-sm text-white/40 font-body leading-relaxed">
+        {faq.answer}
+      </div>
+    </motion.div>
+  )}
+</AnimatePresence>
               </motion.div>
             ))}
           </div>

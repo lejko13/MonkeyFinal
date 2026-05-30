@@ -31,14 +31,14 @@ export default function Testimonials() {
 
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-12">
           <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="font-heading font-black text-[clamp(36px,5vw,72px)] leading-[0.95] tracking-tight"
-          >
-            <span className="text-white">{tm.heading1} </span>
-            <span className="text-[#24a1db]">{tm.heading2}</span>
-          </motion.h2>
+  initial={!isMobile ? { opacity: 0, y: 20 } : false}
+  whileInView={!isMobile ? { opacity: 1, y: 0 } : undefined}
+  viewport={!isMobile ? { once: true } : undefined}
+  className="font-heading font-black text-[clamp(36px,5vw,72px)] leading-[0.95] tracking-tight"
+>
+  <span className="text-white">{tm.heading1} </span>
+  <span className="text-[#24a1db]">{tm.heading2}</span>
+</motion.h2>
 
           <div className="flex gap-2">
             <button

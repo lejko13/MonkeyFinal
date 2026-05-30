@@ -11,6 +11,17 @@ export default function Process() {
   const [activeStep, setActiveStep] = useState(0);
     const isMobile = useMediaQuery({ maxWidth: 768 });
 
+const moja = (step) => {
+  setActiveStep(step);
+
+  setTimeout(() => {
+    document.getElementById('proces-detail')?.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+    });
+  }, 50);
+};
+
   return (
     <section id="proces" className="py-24 lg:py-32 border-t border-white/5 bg-[#0b0b0d]">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
@@ -34,7 +45,7 @@ export default function Process() {
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           <div className="space-y-0 border-t border-white/5">
             {steps.map((step, i) => (
-              <motion.button key={step.num} onClick={() => setActiveStep(i)}
+              <motion.button key={step.num} onClick={() => {setActiveStep(i),moja(i)}}
                 className={`w-full text-left flex items-center gap-6 py-6 border-b border-white/5 group transition-all duration-200 ${activeStep === i ? 'pl-4 border-l-2 border-l-[#24a1db]' : 'pl-0'}`}>
                 <span className={`text-xs font-body font-bold transition-colors ${activeStep === i ? 'text-[#24a1db]' : 'text-white/20'}`}>{step.num}</span>
                 <div className="flex-1">
@@ -45,11 +56,20 @@ export default function Process() {
               </motion.button>
             ))}
           </div>
+{isMobile &&      <div id="proces-detail" className="scroll-mt-[100px]"></div>}
+
 
           <AnimatePresence mode="wait">
             {steps[activeStep] && (
-              <motion.div key={activeStep} initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} transition={{ duration: 0.3 }}
-                className="bg-[#0e0f11] border border-white/5 rounded-sm p-8 lg:p-10">
+             <motion.div
+
+  key={activeStep}
+  initial={{ opacity: 0, x: 20 }}
+  animate={{ opacity: 1, x: 0 }}
+  exit={{ opacity: 0, x: -20 }}
+  transition={{ duration: 0.3 }}
+  className="bg-[#0e0f11] border border-white/5 rounded-sm p-8 lg:p-10"
+>
                 <div className="text-6xl font-heading font-black text-[#24a1db]/10 mb-2">{steps[activeStep].num}</div>
                 <h3 className="font-heading font-black text-2xl text-white mb-4">{steps[activeStep].title}</h3>
                 <p className="text-white/50 font-body leading-relaxed text-sm mb-8">{steps[activeStep].desc}</p>
