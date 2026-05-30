@@ -73,7 +73,7 @@ export default function Hero() {
   }, [isMobile]);
 
   return (
-    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-[#0b0b0d]">
+    <section className="relative min-h-[800px] md:min-h-screen flex flex-col justify-center overflow-hidden bg-[#0b0b0d]">
       {!isMobile && (
         <canvas
           ref={canvasRef}
