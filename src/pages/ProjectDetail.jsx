@@ -18,30 +18,17 @@ export default function ProjectDetail() {
 
   const pd = t.projectDetail;
   const project = getProjectById(id, t);
-
-  // console.log(project.tags);
-
-  const kontrola = project.tags
-  // console.log(kontrola);
-
-
-  console.log(project.gallery);
-  
-  
-  
   const { prev, next } = getAdjacentProjects(id, t);
 
-  const isDesktop = useMediaQuery({
-    query: "(min-width: 700px)",
-  });
+  const isMobile = useMediaQuery({ maxWidth: 768 });
 
-  const desktopHover = isDesktop ? "hover:text-white transition-colors" : "";
-  const desktopTransition = isDesktop ? "transition-all" : "";
-const desktopImgHover = isDesktop
-  ? "hover:scale-105 transition-transform duration-700 cursor-pointer"
-  : "";
-  const desktopGroup = isDesktop ? "group" : "";
-  const desktopGroupHoverText = isDesktop
+  const desktopHover = !isMobile ? "hover:text-white transition-colors" : "";
+  const desktopGroup = !isMobile ? "group" : "";
+  const desktopImgHover = !isMobile
+    ? "hover:scale-105 transition-transform duration-700 cursor-pointer"
+    : "cursor-pointer";
+
+  const desktopGroupHoverText = !isMobile
     ? "group-hover:text-[#24a1db] transition-colors"
     : "";
 
@@ -52,9 +39,11 @@ const desktopImgHover = isDesktop
           <div className="text-6xl font-heading font-black text-white/10 mb-4">
             404
           </div>
+
           <h1 className="text-2xl font-heading font-bold text-white mb-4">
             Projekt nenájdený
           </h1>
+
           <Link
             to="/"
             className={`text-[#24a1db] font-body text-sm ${desktopHover}`}
@@ -66,27 +55,25 @@ const desktopImgHover = isDesktop
     );
   }
 
+  const kontrola = project.tags;
+
   return (
     <div className="min-h-screen bg-[#0b0b0d] overflow-x-hidden">
-
-
-
-       {lightboxOpen && (
-          <ProjectLightbox
-            projects={project.gallery}
-            activeIndex={activeIndex}
-            onClose={() => setLightboxOpen(false)}
-            onNavigate={setActiveIndex}
-          />
-        )}
-
+      {lightboxOpen && (
+        <ProjectLightbox
+          projects={project.gallery}
+          activeIndex={activeIndex}
+          onClose={() => setLightboxOpen(false)}
+          onNavigate={setActiveIndex}
+        />
+      )}
 
       <Navbar />
 
       <section className="pt-32 pb-16 px-6 lg:px-10 max-w-[1400px] mx-auto">
         <motion.div
-          initial={{ opacity: 0, x: -10 }}
-          animate={{ opacity: 1, x: 0 }}
+          initial={!isMobile ? { opacity: 0, x: -10 } : false}
+          animate={!isMobile ? { opacity: 1, x: 0 } : undefined}
           className="mb-10"
         >
           <Link
@@ -100,9 +87,9 @@ const desktopImgHover = isDesktop
 
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
+            initial={!isMobile ? { opacity: 0, y: 30 } : false}
+            animate={!isMobile ? { opacity: 1, y: 0 } : undefined}
+            transition={!isMobile ? { duration: 0.7 } : undefined}
           >
             <div className="flex flex-wrap gap-2 mb-6">
               {project.tags.map((tag) => (
@@ -113,6 +100,7 @@ const desktopImgHover = isDesktop
                   {tag}
                 </span>
               ))}
+
               <span className="text-[10px] font-body font-medium px-2.5 py-1 bg-white/5 text-white/40 rounded-sm border border-white/8 tracking-widest">
                 {project.year}
               </span>
@@ -125,34 +113,32 @@ const desktopImgHover = isDesktop
             <p className="text-white/50 font-body text-base leading-relaxed mb-6 max-w-lg">
               {project.desc}
             </p>
-{project.preklik ? (
-  <a
-    href={project.preklik}
-    target="_blank"
-    rel="noopener noreferrer"
-    className={`inline-flex items-center gap-2 text-sm font-heading font-bold text-[#24a1db] ${
-      isDesktop ? "hover:text-white transition-colors group" : ""
-    }`}
-  >
-    <ExternalLink className="w-4 h-4" />
-    {!kontrola?.includes("Sociálne siete")
-      ? project.url.replace("https://", "").replace("http://", "")
-      : "Otvoriť sociálne siete"}
-  </a>
-) : (
-  <span className="inline-flex items-center gap-2 text-sm font-heading font-bold text-[#24a1db]">
-  Pozrieť si náhľad
-  </span>
-)}
-      
 
- 
+            {project.preklik ? (
+              <a
+                href={project.preklik}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`inline-flex items-center gap-2 text-sm font-heading font-bold text-[#24a1db] ${
+                  !isMobile ? "hover:text-white transition-colors group" : ""
+                }`}
+              >
+                <ExternalLink className="w-4 h-4" />
+                {!kontrola?.includes("Sociálne siete")
+                  ? project.url.replace("https://", "").replace("http://", "")
+                  : "Otvoriť sociálne siete"}
+              </a>
+            ) : (
+              <span className="inline-flex items-center gap-2 text-sm font-heading font-bold text-[#24a1db]">
+                Pozrieť si náhľad
+              </span>
+            )}
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.15 }}
+            initial={!isMobile ? { opacity: 0, y: 20 } : false}
+            animate={!isMobile ? { opacity: 1, y: 0 } : undefined}
+            transition={!isMobile ? { duration: 0.7, delay: 0.15 } : undefined}
             className="grid grid-cols-2 gap-px bg-white/5 rounded-sm overflow-hidden border border-white/5 mt-8 lg:mt-0"
           >
             {[
@@ -165,6 +151,7 @@ const desktopImgHover = isDesktop
                 <div className="text-[10px] font-body tracking-[0.2em] text-white/20 uppercase mb-2">
                   {item.label}
                 </div>
+
                 <div className="font-heading font-semibold text-white text-sm">
                   {item.value}
                 </div>
@@ -174,73 +161,76 @@ const desktopImgHover = isDesktop
         </div>
       </section>
 
-     <motion.div
-  initial={{ opacity: 0, scale: 0.98 }}
-  animate={{ opacity: 1, scale: 1 }}
-  transition={{ duration: 0.8, delay: 0.2 }}
-  className="px-6 lg:px-10 max-w-[1400px] mx-auto mb-24"
->
-   {project.preklik ? (
-  <div className="rounded-sm overflow-hidden">
-    <img
-      src={project.gallery[0]}
-      alt={project.name}
-      className="w-full h-auto object-cover"
-    />
-  </div>
-) : (
-
-<div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-  {project.gallery.slice(0, 4).map((img, i) => (
-    <div
-      key={i}
-      onClick={() => {
-        setLightboxOpen(true)
-        setActiveIndex(i)
-      }}
-      className="rounded-sm overflow-hidden aspect-[3/4]"
-    >
-      <img
-        src={img}
-        alt=""
-        className={`w-full h-full object-cover rounded-sm ${desktopImgHover}`}
-      />
-    </div>
-  ))}
-</div>
-)}
-</motion.div>
+      <motion.div
+        initial={!isMobile ? { opacity: 0, scale: 0.98 } : false}
+        animate={!isMobile ? { opacity: 1, scale: 1 } : undefined}
+        transition={!isMobile ? { duration: 0.8, delay: 0.2 } : undefined}
+        className="px-6 lg:px-10 max-w-[1400px] mx-auto mb-24"
+      >
+        {project.preklik ? (
+          <div className="rounded-sm overflow-hidden">
+            <img
+              src={project.gallery[0]}
+              alt={project.name}
+              className="w-full h-auto object-cover"
+            />
+          </div>
+        ) : (
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {project.gallery.slice(0, 4).map((img, i) => (
+              <div
+                key={i}
+                onClick={() => {
+                  setLightboxOpen(true);
+                  setActiveIndex(i);
+                }}
+                className="rounded-sm overflow-hidden aspect-[3/4] cursor-pointer"
+              >
+                <img
+                  src={img}
+                  alt=""
+                  className={`w-full h-full object-cover rounded-sm ${desktopImgHover}`}
+                />
+              </div>
+            ))}
+          </div>
+        )}
+      </motion.div>
 
       <section className="px-6 lg:px-10 max-w-[1400px] mx-auto mb-24">
         <div className="grid lg:grid-cols-2 gap-16">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            initial={!isMobile ? { opacity: 0, y: 20 } : false}
+            whileInView={!isMobile ? { opacity: 1, y: 0 } : undefined}
+            viewport={!isMobile ? { once: true } : undefined}
           >
             <div className="text-[10px] font-body tracking-[0.25em] text-[#24a1db] uppercase mb-4">
               {pd.challenge}
             </div>
+
             <h2 className="font-heading font-black text-2xl text-white mb-5">
               {pd.challengeHeading}
             </h2>
+
             <p className="text-white/50 font-body leading-relaxed text-sm">
               {project.challenge}
             </p>
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
+            initial={!isMobile ? { opacity: 0, y: 20 } : false}
+            whileInView={!isMobile ? { opacity: 1, y: 0 } : undefined}
+            viewport={!isMobile ? { once: true } : undefined}
+            transition={!isMobile ? { delay: 0.1 } : undefined}
           >
             <div className="text-[10px] font-body tracking-[0.25em] text-[#24a1db] uppercase mb-4">
               {pd.solution}
             </div>
+
             <h2 className="font-heading font-black text-2xl text-white mb-5">
               {pd.solutionHeading}
             </h2>
+
             <p className="text-white/50 font-body leading-relaxed text-sm">
               {project.solution}
             </p>
@@ -250,64 +240,65 @@ const desktopImgHover = isDesktop
 
       <section className="px-6 lg:px-10 max-w-[1400px] mx-auto mb-24">
         {project.preklik ? (
-  <div className="columns-1 md:columns-2 gap-4 space-y-4">
-    {project.gallery.map((img, i) => (
-      <motion.div
-        onClick={() => {
-          setLightboxOpen(true)
-          setActiveIndex(i)
-        }}
-        key={i}
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ delay: i * 0.1 }}
-        className="overflow-hidden rounded-sm break-inside-avoid"
-      >
-        <img
-          src={img}
-          alt=""
-          className={`w-full h-auto object-contain rounded-sm ${desktopImgHover}`}
-        />
-      </motion.div>
-    ))}
-  </div>
-) : (
-  <div className="grid grid-cols-2 md:grid-cols-6 gap-4">
-    {project.gallery.slice(4).map((img, i) => (
-      <div
-        key={i}
-        onClick={() => {
-          setLightboxOpen(true)
-          setActiveIndex(i+4)
-        }}
-        className="rounded-sm overflow-hidden aspect-[3/4]"
-      >
-        <img
-          src={img}
-          alt=""
-          className={`w-full h-full object-cover rounded-sm ${desktopImgHover}`}
-        />
-      </div>
-    ))}
-  </div>
-)}
-      
+          <div className="columns-1 md:columns-2 gap-4 space-y-4">
+            {project.gallery.map((img, i) => (
+              <motion.div
+                onClick={() => {
+                  setLightboxOpen(true);
+                  setActiveIndex(i);
+                }}
+                key={i}
+                initial={!isMobile ? { opacity: 0, y: 20 } : false}
+                whileInView={!isMobile ? { opacity: 1, y: 0 } : undefined}
+                viewport={!isMobile ? { once: true } : undefined}
+                transition={!isMobile ? { delay: i * 0.1 } : undefined}
+                className="overflow-hidden rounded-sm break-inside-avoid cursor-pointer"
+              >
+                <img
+                  src={img}
+                  alt=""
+                  className={`w-full h-auto object-contain rounded-sm ${desktopImgHover}`}
+                />
+              </motion.div>
+            ))}
+          </div>
+        ) : (
+          <div className="grid grid-cols-2 md:grid-cols-6 gap-4">
+            {project.gallery.slice(4).map((img, i) => (
+              <div
+                key={i}
+                onClick={() => {
+                  setLightboxOpen(true);
+                  setActiveIndex(i + 4);
+                }}
+                className="rounded-sm overflow-hidden aspect-[3/4] cursor-pointer"
+              >
+                <img
+                  src={img}
+                  alt=""
+                  className={`w-full h-full object-cover rounded-sm ${desktopImgHover}`}
+                />
+              </div>
+            ))}
+          </div>
+        )}
       </section>
 
       <section className="px-6 lg:px-10 max-w-[1400px] mx-auto mb-24">
         <div className="grid lg:grid-cols-2 gap-16">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            initial={!isMobile ? { opacity: 0, y: 20 } : false}
+            whileInView={!isMobile ? { opacity: 1, y: 0 } : undefined}
+            viewport={!isMobile ? { once: true } : undefined}
           >
             <div className="text-[10px] font-body tracking-[0.25em] text-[#24a1db] uppercase mb-4">
               {pd.process}
             </div>
+
             <h2 className="font-heading font-black text-2xl text-white mb-5">
               {pd.processHeading}
             </h2>
+
             <div className="space-y-2">
               {project.process.split(" → ").map((step, i) => (
                 <div key={i} className="flex items-center gap-3">
@@ -316,6 +307,7 @@ const desktopImgHover = isDesktop
                       {String(i + 1).padStart(2, "0")}
                     </span>
                   </div>
+
                   <span className="text-sm font-body text-white/60">
                     {step}
                   </span>
@@ -325,17 +317,19 @@ const desktopImgHover = isDesktop
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
+            initial={!isMobile ? { opacity: 0, y: 20 } : false}
+            whileInView={!isMobile ? { opacity: 1, y: 0 } : undefined}
+            viewport={!isMobile ? { once: true } : undefined}
+            transition={!isMobile ? { delay: 0.1 } : undefined}
           >
             <div className="text-[10px] font-body tracking-[0.25em] text-[#24a1db] uppercase mb-4">
               {pd.results}
             </div>
+
             <h2 className="font-heading font-black text-2xl text-white mb-5">
               {pd.resultsHeading}
             </h2>
+
             <div className="space-y-3">
               {project.results.map((result, i) => (
                 <div
@@ -343,6 +337,7 @@ const desktopImgHover = isDesktop
                   className="flex items-center gap-3 py-3 border-b border-white/5"
                 >
                   <div className="w-1.5 h-1.5 rounded-full bg-[#24a1db] flex-shrink-0" />
+
                   <span className="font-heading font-semibold text-white text-sm">
                     {result}
                   </span>
@@ -359,6 +354,7 @@ const desktopImgHover = isDesktop
             <div className="text-[10px] font-body tracking-[0.2em] text-white/20 uppercase mb-5">
               {pd.servicesUsed}
             </div>
+
             <div className="flex flex-wrap gap-2">
               {project.services.map((s) => (
                 <span
@@ -375,6 +371,7 @@ const desktopImgHover = isDesktop
             <div className="text-[10px] font-body tracking-[0.2em] text-white/20 uppercase mb-5">
               {pd.technologies}
             </div>
+
             <div className="flex flex-wrap gap-2">
               {project.tech.map((t) => (
                 <span
@@ -395,6 +392,7 @@ const desktopImgHover = isDesktop
             {pd.ctaHeading1}{" "}
             <span className="text-[#24a1db]">{pd.ctaHeading2}</span>
           </h2>
+
           <p className="text-white/40 font-body text-sm max-w-md mx-auto mb-8">
             {pd.ctaSub}
           </p>
@@ -402,16 +400,16 @@ const desktopImgHover = isDesktop
           <a href="/#kontakt">
             <motion.button
               whileHover={
-                isDesktop
+                !isMobile
                   ? {
                       scale: 1.03,
                       boxShadow: "0 0 40px rgba(36,161,219,0.3)",
                     }
                   : undefined
               }
-              whileTap={{ scale: 0.97 }}
+              whileTap={!isMobile ? { scale: 0.97 } : undefined}
               className={`px-10 py-4 bg-[#24a1db] text-black font-heading font-black text-sm tracking-widest rounded-sm ${
-                isDesktop ? "transition-all duration-200" : ""
+                !isMobile ? "transition-all duration-200" : ""
               }`}
             >
               {pd.ctaBtn}
@@ -421,22 +419,24 @@ const desktopImgHover = isDesktop
       </section>
 
       <section className="px-6 lg:px-10 max-w-[1400px] mx-auto mb-24">
-        <div className="grid grid-cols-2 gap-4">
+        <div className="flex flex-col gap-4 md: flex-row">
           {prev ? (
             <Link
               to={`/${prev.id}`}
               className={`${desktopGroup} flex flex-col gap-2 p-6 border border-white/5 rounded-sm bg-[#0e0f11] ${
-                isDesktop ? "hover:border-[#24a1db]/20 transition-all" : ""
+                !isMobile ? "hover:border-[#24a1db]/20 transition-all" : ""
               }`}
             >
               <div className="flex items-center gap-2 text-[10px] font-body tracking-widest text-white/20 mb-2">
                 <ArrowLeft className="w-3 h-3" /> {pd.prev}
               </div>
+
               <div
                 className={`font-heading font-bold text-white ${desktopGroupHoverText}`}
               >
                 {prev.name}
               </div>
+
               <div className="text-xs text-white/30 font-body">
                 {prev.category}
               </div>
@@ -449,17 +449,19 @@ const desktopImgHover = isDesktop
             <Link
               to={`/${next.id}`}
               className={`${desktopGroup} flex flex-col gap-2 p-6 border border-white/5 rounded-sm bg-[#0e0f11] text-right ${
-                isDesktop ? "hover:border-[#24a1db]/20 transition-all" : ""
+                !isMobile ? "hover:border-[#24a1db]/20 transition-all" : ""
               }`}
             >
               <div className="flex items-center justify-end gap-2 text-[10px] font-body tracking-widest text-white/20 mb-2">
                 {pd.next} <ArrowRight className="w-3 h-3" />
               </div>
+
               <div
                 className={`font-heading font-bold text-white ${desktopGroupHoverText}`}
               >
                 {next.name}
               </div>
+
               <div className="text-xs text-white/30 font-body">
                 {next.category}
               </div>
