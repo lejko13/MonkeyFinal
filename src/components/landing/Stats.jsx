@@ -27,10 +27,10 @@ export default function Stats() {
   const isMobile = useMediaQuery({ maxWidth: 768 });
 
   const stats = [
-    { value: '150+', label: s.clients, sub: s.clientsSub },
-    { value: '8+', label: s.years, sub: s.yearsSub },
-    { value: '12', label: s.experts, sub: s.expertsSub },
-    { value: '300+', label: s.projects, sub: s.projectsSub },
+    { value: '34+', label: s.clients, sub: s.clientsSub },
+    { value: '3+', label: s.years, sub: s.yearsSub },
+    { value: '2', label: s.experts, sub: s.expertsSub },
+    { value: '89+', label: s.projects, sub: s.projectsSub },
   ];
 
   return (

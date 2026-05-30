@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Mail, Instagram, CheckCircle } from 'lucide-react';
 import { useLang } from '../../lib/LangContext';
 import { useMediaQuery } from 'react-responsive';
+import emailjs from '@emailjs/browser';
 
 export default function CTASection() {
   const { t } = useLang();
@@ -20,10 +21,37 @@ export default function CTASection() {
   const [submitted, setSubmitted] = useState(false);
   const isMobile = useMediaQuery({ maxWidth: 768 });
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  try {
+    await emailjs.send(
+    'service_leofudaly',
+      'template_d1y0ik3',
+      {
+        name: form.name,
+        company: form.company,
+        email: form.email,
+        phone: form.phone,
+        message: form.message,
+      },
+      'hSOlixX9PjPehxkpU'
+    );
+
     setSubmitted(true);
-  };
+
+    setForm({
+      name: '',
+      company: '',
+      email: '',
+      phone: '',
+      message: '',
+    });
+  } catch (error) {
+    console.error(error);
+    alert('Nepodarilo sa odoslať správu.');
+  }
+};
 
   return (
     <section id="kontakt" className="py-24 lg:py-32 border-t border-white/5 bg-[#0b0b0d]">
@@ -46,7 +74,7 @@ export default function CTASection() {
 
             <div className="space-y-4">
               <a
-                href="mailto:info@monkeymedia.sk"
+                href="mailto:leo.fudaly@gmail.com"
                 className={`flex items-center gap-4 ${!isMobile ? 'group' : ''}`}
               >
                 <div
@@ -70,13 +98,14 @@ export default function CTASection() {
                         : 'text-white/70'
                     }`}
                   >
-                    info@monkeymedia.sk
+                   leo.fudaly@gmail.com
                   </div>
                 </div>
               </a>
 
               <a
-                href="https://instagram.com/monkeymedia"
+        href="https://www.instagram.com/leofudaly/"
+          target="_blank"
                 className={`flex items-center gap-4 ${!isMobile ? 'group' : ''}`}
               >
                 <div
@@ -100,7 +129,7 @@ export default function CTASection() {
                         : 'text-white/70'
                     }`}
                   >
-                    @monkeymedia
+                    @leofudaly
                   </div>
                 </div>
               </a>

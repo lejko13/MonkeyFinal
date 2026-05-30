@@ -174,7 +174,7 @@ export default function Hero() {
               </motion.button>
             </a>
 
-            <a href="#projekty">
+ <a href="/projects">
               <motion.button
                 whileHover={
                   !isMobile
