@@ -91,7 +91,7 @@ export default function FAQ() {
                     </span>
                   </div>
 
-                  <div
+                  {/* <div
                     className={`w-8 h-8 rounded-sm border flex items-center justify-center flex-shrink-0 ml-4 transition-all duration-200 ${
                       openIndex === i
                         ? 'border-[#24a1db] text-[#24a1db]'
@@ -105,7 +105,7 @@ export default function FAQ() {
                     ) : (
                       <Plus className="w-3.5 h-3.5" />
                     )}
-                  </div>
+                  </div> */}
                 </button>
 
                 <AnimatePresence>

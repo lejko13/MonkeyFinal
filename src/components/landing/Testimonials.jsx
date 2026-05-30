@@ -7,12 +7,16 @@ import { useMediaQuery } from "react-responsive";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Mousewheel } from 'swiper/modules';
 
+import { useNavigate } from "react-router-dom";
+
 
 
 import 'swiper/css';
 import 'swiper/css/navigation';
 
 export default function Testimonials() {
+  const navigate = useNavigate();
+
   const { t } = useLang();
   const tm = t.testimonials;
   const testimonials = t.testimonialsData || [];
@@ -86,7 +90,8 @@ export default function Testimonials() {
   <SwiperSlide key={item.name + i}>
 
     <motion.div
-  className={`rounded-sm p-7 flex flex-col gap-5 transition-all duration-300 h-full border ${
+   onClick={() => navigate(`/${item.projectId}`)}
+  className={`rounded-sm p-7 flex flex-col gap-5 transition-all duration-300 h-full border cursor-pointer ${
     isMobile
       ? 'bg-[#0e0f11] border-[#24a1db]/20'
       : 'bg-[#0e0f11] border-white/5 hover:border-[#24a1db]/20'

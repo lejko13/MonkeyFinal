@@ -2,24 +2,34 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { useLang } from '../../lib/LangContext';
+import { useMediaQuery } from 'react-responsive';
 
 export default function Process() {
   const { t } = useLang();
   const p = t.process;
   const steps = t.processSteps || [];
   const [activeStep, setActiveStep] = useState(0);
+    const isMobile = useMediaQuery({ maxWidth: 768 });
 
   return (
     <section id="proces" className="py-24 lg:py-32 border-t border-white/5 bg-[#0b0b0d]">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-16">
-          <span className="text-xs font-body font-medium tracking-[0.25em] text-[#24a1db] uppercase">{p.badge}</span>
-          <h2 className="font-heading font-black text-[clamp(36px,5vw,72px)] leading-[0.95] tracking-tight mt-4">
-            <span className="text-white">{p.heading1}</span>
-            <br />
-            <span className="text-[#24a1db]">{p.heading2}</span>
-          </h2>
-        </motion.div>
+   <motion.div
+  initial={!isMobile ? { opacity: 0, y: 20 } : false}
+  whileInView={!isMobile ? { opacity: 1, y: 0 } : undefined}
+  viewport={!isMobile ? { once: true } : undefined}
+  className="mb-16"
+>
+  <span className="text-xs font-body font-medium tracking-[0.25em] text-[#24a1db] uppercase">
+    {p.badge}
+  </span>
+
+  <h2 className="font-heading font-black text-[clamp(36px,5vw,72px)] leading-[0.95] tracking-tight mt-4">
+    <span className="text-white">{p.heading1}</span>
+    <br />
+    <span className="text-[#24a1db]">{p.heading2}</span>
+  </h2>
+</motion.div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           <div className="space-y-0 border-t border-white/5">
@@ -56,11 +66,26 @@ export default function Process() {
                 </div>
                 <div className="mt-8 pt-8 border-t border-white/5">
                   <a href="#kontakt">
-                    <motion.button whileHover={{ scale: 1.02 }}
-                      className="flex items-center gap-2 text-sm font-heading font-bold text-[#24a1db] hover:text-white transition-colors group">
-                      {p.cta}
-                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    </motion.button>
+
+                    <motion.button
+  whileHover={!isMobile ? { scale: 1.02 } : undefined}
+  className={`flex items-center gap-2 text-sm font-heading font-bold ${
+    !isMobile
+      ? 'text-[#24a1db] hover:text-white transition-colors group'
+      : 'text-[#24a1db]'
+  }`}
+>
+  {p.cta}
+
+  <ArrowRight
+    className={`w-4 h-4 ${
+      !isMobile
+        ? 'group-hover:translate-x-1 transition-transform'
+        : ''
+    }`}
+  />
+</motion.button>
+                   
                   </a>
                 </div>
               </motion.div>

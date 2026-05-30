@@ -4,6 +4,8 @@ export const translations = {
       services: 'SLUŽBY',
       projects: 'PROJEKTY',
       team: 'TÍM',
+      faq:"FAQ",
+      proces:"PROCES",
       contact: 'KONTAKT',
       cta: 'REZERVOVAŤ STRETNUTIE',
     },
@@ -15,7 +17,7 @@ export const translations = {
       sub1: 'Od prvého kliku k prvému klientovi.',
       sub2: 'Navrhneme, vyvinieme a spustíme váš digitálny produkt.',
       sub3: 'Online za 7 dní.',
-      ctaPrimary: 'REZERVOVAŤ STRETNUTIE ZDARMA',
+      ctaPrimary: ' STRETNUTIE ZDARMA',
       ctaSecondary: 'NAŠE PROJEKTY',
       socialProof: 'spokojných klientov',
     },
@@ -145,6 +147,8 @@ export const translations = {
       team: 'TEAM',
       contact: 'CONTACT',
       cta: 'BOOK A MEETING',
+      faq: "FAQ",
+proces: "PROCESS",
     },
     hero: {
       badge: 'Premium Web Agency · Since 2018',
@@ -278,6 +282,8 @@ export const translations = {
 
   CZ: {
     nav: {
+      faq: "FAQ",
+proces: "PROCES",
       services: 'SLUŽBY',
       projects: 'PROJEKTY',
       team: 'TÝM',
@@ -416,6 +422,9 @@ export const translations = {
 
   DE: {
     nav: {
+      faq: "FAQ",
+proces: "PROZESS",
+
       services: 'LEISTUNGEN',
       projects: 'PROJEKTE',
       team: 'TEAM',
@@ -554,6 +563,8 @@ export const translations = {
 
   PL: {
     nav: {
+      faq: "FAQ",
+proces: "PROCES",
       services: 'USŁUGI',
       projects: 'PROJEKTY',
       team: 'ZESPÓŁ',
@@ -1291,10 +1302,21 @@ const teamMembersData = {
 // ─── TESTIMONIALS ──────────────────────────────────────────────────────────────
 const testimonialsDataAll = {
   SK: [
-    { name: 'Marek Novák', role: 'CEO · SophistIT', avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=face', text: 'S Monkey Media spolupracujeme cez rok. Prístup k projektu bol od začiatku profesionálny: jasná komunikácia, výsledky, ktoré prekonali očakávania. Web spustili presne v termíne a beží bezchybne.' },
-    { name: 'Jana Kováčová', role: 'Marketing Manager · Panorama Golf', avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=80&h=80&fit=crop&crop=face', text: 'Hľadali sme skupinu, ktorá rozumie technológii aj dizajnu zároveň. Monkey Media presne to. Dodali komplexný dizajn aj vývoj, vrátane moderných UI komponentov.' },
-    { name: 'Peter Šimko', role: 'Founder · NeoReal', avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&h=80&fit=crop&crop=face', text: 'Produktové fotografie a vizuály, ktoré navrhli, sú absolútne nerozoznateľné od skutočných. Ušetrili sme obrovský budget za fotoshoot. Výsledky v reklamách hovoria samy za seba.' },
-    { name: 'Lucia Horváthová', role: 'Brand Manager · Begam', avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=80&h=80&fit=crop&crop=face', text: 'Nový e-shop nám priniesol o 60% viac online objednávok. Celý redesign prebehol bez výpadku, v čase a v rámci rozpočtu. Monkey Media je skutočne strategický partner.' },
+     {
+    name: 'Timothy Smon',
+    role: 'Majiteľ · FormaCasa Interior Design',
+    avatar: '/ludia/timo.webp',
+   projectId: 'timo-interior',
+    text: 'Spolupráca prebehla profesionálne od začiatku až po spustenie webu. Výsledkom je moderná prezentácia nášho štúdia, ktorá dokonale vystihuje značku FormaCasa. Oceňujem rýchlu komunikáciu, kreatívny prístup a dôraz na detail. Veľkým prínosom boli aj grafické podklady a obsah pre sociálne siete.'
+  },
+  {
+    name: 'Leni Hončárová',
+    role: 'Umelkyňa',
+     projectId: 'leni-honcarova',
+    avatar: '/ludia/lenka.webp',
+    text: 'Potrebovala som elegantné online portfólio, ktoré nechá vyniknúť moju tvorbu. Výsledný web presne splnil moje predstavy – je minimalistický, prehľadný a pôsobí veľmi profesionálne. Celý proces bol rýchly, príjemný a bez komplikácií.'
+  },
+
   ],
   EN: [
     { name: 'Marek Novák', role: 'CEO · SophistIT', avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=face', text: 'We have been working with Monkey Media for over a year. The approach to the project was professional from the start: clear communication, results that exceeded expectations. The website launched exactly on time and runs flawlessly.' },

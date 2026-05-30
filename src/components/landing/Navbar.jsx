@@ -30,8 +30,10 @@ export default function Navbar() {
   const navLinks = [
     { label: t.nav.services, href: '#sluzby', hasDropdown: true },
     { label: t.nav.projects, href: '/projects', isRoute: true },
-    { label: t.nav.team, href: '/#tim' },
+    // { label: t.nav.team, href: '/#tim' },
     { label: t.nav.contact, href: '/#kontakt' },
+    { label: t.nav.proces, href: '/#proces' },
+    { label: t.nav.faq, href: '/#faq' },
   ];
 
   const handleNavClick = (e, href) => {
@@ -223,10 +225,18 @@ export default function Navbar() {
                 <a
                   key={link.label}
                   href={link.href}
+
                   onClick={(e) => {
-                    handleNavClick(e, link.href);
-                    setMobileOpen(false);
-                  }}
+  if (!link.href.includes("#")) return;
+
+  e.preventDefault();
+  setMobileOpen(false);
+
+  setTimeout(() => {
+    handleNavClick(e, link.href);
+  }, 250);
+}}
+                 
                   className="block text-base font-heading font-semibold text-white/70 hover:text-white tracking-widest transition-colors"
                 >
                   {link.label}
