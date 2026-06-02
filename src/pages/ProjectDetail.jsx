@@ -9,9 +9,15 @@ import { useLang } from "../lib/LangContext";
 import ProjectLightbox from "../components/ui/owerlap";
 import { useMediaQuery } from "react-responsive";
 
+import { useNavigate } from 'react-router-dom';
+
 export default function ProjectDetail() {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
+
+
+
+    const navigate = useNavigate();
 
   const { id } = useParams();
   const { t } = useLang();
@@ -32,6 +38,26 @@ export default function ProjectDetail() {
     ? "group-hover:text-[#24a1db] transition-colors"
     : "";
 
+
+
+
+
+     const handleKontaktClick = () => {
+  if (location.pathname !== '/') {
+    navigate('/');
+
+    setTimeout(() => {
+      document
+        .getElementById('kontakt')
+        ?.scrollIntoView({ behavior: 'smooth' });
+    }, 100);
+  } else {
+    document
+      .getElementById('kontakt')
+      ?.scrollIntoView({ behavior: 'smooth' });
+  }
+};
+
   if (!project) {
     return (
       <div className="min-h-screen bg-[#0b0b0d] flex items-center justify-center">
@@ -44,12 +70,12 @@ export default function ProjectDetail() {
             Projekt nenájdený
           </h1>
 
-          <Link
-            to="/"
-            className={`text-[#24a1db] font-body text-sm ${desktopHover}`}
-          >
-            ← {pd.back}
-          </Link>
+          <button
+  onClick={handleKontaktClick}
+  className={`text-[#24a1db] font-body text-sm ${desktopHover}`}
+>
+  ← {pd.back}
+</button>
         </div>
       </div>
     );
@@ -401,24 +427,23 @@ export default function ProjectDetail() {
             {pd.ctaSub}
           </p>
 
-          <a href="/">
-            <motion.button
-              whileHover={
-                !isMobile
-                  ? {
-                      scale: 1.03,
-                      boxShadow: "0 0 40px rgba(36,161,219,0.3)",
-                    }
-                  : undefined
-              }
-              whileTap={!isMobile ? { scale: 0.97 } : undefined}
-              className={`px-10 py-4 bg-[#24a1db] text-black font-heading font-black text-sm tracking-widest rounded-sm ${
-                !isMobile ? "transition-all duration-200" : ""
-              }`}
-            >
-              {pd.ctaBtn}
-            </motion.button>
-          </a>
+         <motion.button
+  onClick={handleKontaktClick}
+  whileHover={
+    !isMobile
+      ? {
+          scale: 1.03,
+          boxShadow: "0 0 40px rgba(36,161,219,0.3)",
+        }
+      : undefined
+  }
+  whileTap={!isMobile ? { scale: 0.97 } : undefined}
+  className={`px-10 py-4 bg-[#24a1db] text-black font-heading font-black text-sm tracking-widest rounded-sm ${
+    !isMobile ? "transition-all duration-200" : ""
+  }`}
+>
+  {pd.ctaBtn}
+</motion.button>
         </div>
       </section>
 
