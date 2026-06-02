@@ -513,7 +513,7 @@ website: 'https://left-champagne-285439.framer.app/cennik21',
   id: 'pixelate-agency',
   name: 'Pixelate Studio',
   year: '2026',
-  preklik: 'https://www.lenihoncarova.com/',
+  preklik: "nic",
   tags: ['Dizajn', 'Web Design', 'UI/UX'],
 
   image: '/project/grafika/agency/mocukupnahladageny.webp',
@@ -586,7 +586,7 @@ website: 'https://left-champagne-285439.framer.app/cennik21',
   ],
 
   url: 'https://donuteria.sk',
- preklik: 'https://www.lenihoncarova.com/',
+  preklik: "nic",
   client: 'Donuteria',
 
   tech: [
@@ -645,7 +645,7 @@ website: 'https://left-champagne-285439.framer.app/cennik21',
   ],
 
   url: 'https://burgerys.sk',
-
+  preklik: "nic",
   client: 'Burgerys',
 
   tech: [
@@ -690,7 +690,7 @@ website: 'https://left-champagne-285439.framer.app/cennik21',
   id: 'vodoexpert',
   name: 'Vodo Expert',
   year: '2026',
- preklik: 'https://www.lenihoncarova.com/',
+  preklik: "nic",
   tags: ['Dizajn', 'UI/UX', 'Branding'],
 
   image: '/project/grafika/vodar/mockuupvodar.webp',

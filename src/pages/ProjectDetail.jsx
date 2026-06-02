@@ -113,26 +113,30 @@ export default function ProjectDetail() {
             <p className="text-white/50 font-body text-base leading-relaxed mb-6 max-w-lg">
               {project.desc}
             </p>
-
-            {project.preklik ? (
-              <a
-                href={project.preklik}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`inline-flex items-center gap-2 text-sm font-heading font-bold text-[#24a1db] ${
-                  !isMobile ? "hover:text-white transition-colors group" : ""
-                }`}
-              >
-                <ExternalLink className="w-4 h-4" />
-                {!kontrola?.includes("Sociálne siete")
-                  ? project.url.replace("https://", "").replace("http://", "")
-                  : "Otvoriť sociálne siete"}
-              </a>
-            ) : (
-              <span className="inline-flex items-center gap-2 text-sm font-heading font-bold text-[#24a1db]">
-                Pozrieť si náhľad
-              </span>
-            )}
+            
+{project.preklik === "nic" ? (
+  <span className="inline-flex items-center gap-2 text-sm font-heading font-bold text-[#24a1db]">
+    Pozrieť si náhľad
+  </span>
+) : project.preklik ? (
+  <a
+    href={project.preklik}
+    target="_blank"
+    rel="noopener noreferrer"
+    className={`inline-flex items-center gap-2 text-sm font-heading font-bold text-[#24a1db] ${
+      !isMobile ? "hover:text-white transition-colors group" : ""
+    }`}
+  >
+    <ExternalLink className="w-4 h-4" />
+    {!kontrola?.includes("Sociálne siete")
+      ? project.url.replace("https://", "").replace("http://", "")
+      : "Otvoriť sociálne siete"}
+  </a>
+) : (
+  <span className="inline-flex items-center gap-2 text-sm font-heading font-bold text-[#24a1db]">
+    Pozrieť si náhľad
+  </span>
+)}
           </motion.div>
 
           <motion.div

@@ -121,14 +121,14 @@ export default function Navbar() {
           {/* Right side */}
           <div className="hidden lg:flex items-center gap-3">
             <div className="relative">
-              <button
+              {/* <button
                 onClick={() => setLangOpen(!langOpen)}
                 className="flex items-center gap-2 px-3 py-2 rounded-sm border border-white/10 text-white/60 hover:text-white hover:border-white/20 transition-all duration-200 text-xs font-body tracking-widest"
               >
                 <Globe className="w-3 h-3" />
                 {lang}
                 <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${langOpen ? 'rotate-180' : ''}`} />
-              </button>
+              </button> */}
 
               <AnimatePresence>
                 {langOpen && (
@@ -244,7 +244,8 @@ export default function Navbar() {
               ))}
 
               <div className="pt-4 border-t border-white/5 space-y-3">
-                <div className="flex gap-2 pb-5">
+
+                {/* <div className="flex gap-2 pb-5">
                   {SUPPORTED_LANGS.map((code) => (
                     <button
                       key={code}
@@ -258,7 +259,7 @@ export default function Navbar() {
                       {code}
                     </button>
                   ))}
-                </div>
+                </div> */}
 
                 <a href="/#kontakt" onClick={(e) => handleNavClick(e, '/#kontakt')}>
                   <button className="w-full py-4 bg-[#24a1db] text-black font-heading font-black text-sm tracking-widest rounded-sm">
