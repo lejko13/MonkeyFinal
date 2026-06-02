@@ -103,7 +103,7 @@ export default function ProjectDetail() {
           className="mb-10"
         >
           <Link
-            to="/#projekty"
+            to="/"
             className={`inline-flex items-center gap-2 text-xs font-body text-white/30 tracking-widest ${desktopHover}`}
           >
             <ChevronLeft className="w-3.5 h-3.5" />
