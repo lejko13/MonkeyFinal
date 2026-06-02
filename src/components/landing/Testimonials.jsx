@@ -90,7 +90,7 @@ export default function Testimonials() {
   <SwiperSlide key={item.name + i}>
 
     <motion.div
-   onClick={() => navigate(`/${item.projectId}`)}
+   
   className={`rounded-sm p-7 flex flex-col gap-5 transition-all duration-300 h-full border cursor-pointer ${
     isMobile
       ? 'bg-[#0e0f11] border-[#24a1db]/20'
