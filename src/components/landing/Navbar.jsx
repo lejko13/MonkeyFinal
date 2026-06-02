@@ -27,14 +27,13 @@ export default function Navbar() {
     tag: s.tags.slice(0, 3).join(' · '),
   }));
 
-  const navLinks = [
-    { label: t.nav.services, href: '#sluzby', hasDropdown: true },
-    { label: t.nav.projects, href: '/projects', isRoute: true },
-    // { label: t.nav.team, href: '/#tim' },
-    { label: t.nav.contact, href: '/#kontakt' },
-    { label: t.nav.proces, href: '/#proces' },
-    { label: t.nav.faq, href: '/#faq' },
-  ];
+const navLinks = [
+  { label: t.nav.services, href: '#sluzby', hasDropdown: true },
+  { label: t.nav.projects, href: '/projects', isRoute: true },
+  { label: t.nav.contact, isContact: true },
+  { label: t.nav.proces, href: '/#proces' },
+  { label: t.nav.faq, href: '/#faq' },
+];
 
   const handleNavClick = (e, href) => {
     if (!href.includes('#')) return;
@@ -75,6 +74,25 @@ export default function Navbar() {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
+
+   const handleKontaktClick = () => {
+  if (location.pathname !== '/') {
+    navigate('/');
+
+    setTimeout(() => {
+      document
+        .getElementById('kontakt')
+        ?.scrollIntoView({ behavior: 'smooth' });
+    }, 100);
+  } else {
+    document
+      .getElementById('kontakt')
+      ?.scrollIntoView({ behavior: 'smooth' });
+  }
+};
+
+
+
   return (
     <nav className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 
       bg-black backdrop-blur-xl border-b border-white/5' 
@@ -95,40 +113,44 @@ export default function Navbar() {
           {/* Desktop Nav */}
           <div className="hidden lg:flex items-center gap-8">
             {navLinks.map((link) => (
-              <div key={link.label} className="relative">
-                {link.hasDropdown ? (
-                  <button
-                    onMouseEnter={() => setServicesOpen(true)}
-                    onClick={() => setServicesOpen(!servicesOpen)}
-                    className="flex items-center gap-1 text-xs font-body font-medium tracking-widest text-white/60 hover:text-white transition-colors duration-200"
-                  >
-                    {link.label}
-                    <ChevronDown className={`w-3 h-3 transition-transform duration-300 ${servicesOpen ? 'rotate-180' : ''}`} />
-                  </button>
-                ) : (
-                  <a
-                    href={link.href}
-                    onClick={(e) => handleNavClick(e, link.href)}
-                    className="text-xs font-body font-medium tracking-widest text-white/60 hover:text-white transition-colors duration-200"
-                  >
-                    {link.label}
-                  </a>
-                )}
-              </div>
-            ))}
+  <div key={link.label} className="relative">
+    {link.hasDropdown ? (
+      <button
+        onMouseEnter={() => setServicesOpen(true)}
+        onClick={() => setServicesOpen(!servicesOpen)}
+        className="flex items-center gap-1 text-xs font-body font-medium tracking-widest text-white/60 hover:text-white transition-colors duration-200"
+      >
+        {link.label}
+        <ChevronDown
+          className={`w-3 h-3 transition-transform duration-300 ${
+            servicesOpen ? 'rotate-180' : ''
+          }`}
+        />
+      </button>
+    ) : link.isContact ? (
+      <button
+        onClick={handleKontaktClick}
+        className="text-xs font-body font-medium tracking-widest text-white/60 hover:text-white transition-colors duration-200"
+      >
+        {link.label}
+      </button>
+    ) : (
+      <a
+        href={link.href}
+        onClick={(e) => handleNavClick(e, link.href)}
+        className="text-xs font-body font-medium tracking-widest text-white/60 hover:text-white transition-colors duration-200"
+      >
+        {link.label}
+      </a>
+    )}
+  </div>
+))}
           </div>
 
           {/* Right side */}
           <div className="hidden lg:flex items-center gap-3">
             <div className="relative">
-              {/* <button
-                onClick={() => setLangOpen(!langOpen)}
-                className="flex items-center gap-2 px-3 py-2 rounded-sm border border-white/10 text-white/60 hover:text-white hover:border-white/20 transition-all duration-200 text-xs font-body tracking-widest"
-              >
-                <Globe className="w-3 h-3" />
-                {lang}
-                <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${langOpen ? 'rotate-180' : ''}`} />
-              </button> */}
+              {/* g */}
 
               <AnimatePresence>
                 {langOpen && (
@@ -156,15 +178,14 @@ export default function Navbar() {
               </AnimatePresence>
             </div>
 
-            <a href="/#kontakt" onClick={(e) => handleNavClick(e, '/#kontakt')}>
-              <motion.button
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
-                className="px-5 py-2.5 bg-[#24a1db] hover:bg-[#1e8fc4] text-black font-heading font-bold text-xs tracking-widest transition-all duration-200 rounded-sm"
-              >
-                {t.nav.cta}
-              </motion.button>
-            </a>
+           <motion.button
+  onClick={handleKontaktClick}
+  whileHover={{ scale: 1.03 }}
+  whileTap={{ scale: 0.97 }}
+  className="px-5 py-2.5 bg-[#24a1db] hover:bg-[#1e8fc4] text-black font-heading font-bold text-xs tracking-widest transition-all duration-200 rounded-sm"
+>
+  {t.nav.cta}
+</motion.button>
           </div>
 
           {/* Mobile toggle */}
@@ -221,27 +242,41 @@ export default function Navbar() {
             className="lg:hidden bg-[#0b0b0d]/98 backdrop-blur-xl border-b border-white/5"
           >
             <div className="px-6 py-8 space-y-6">
-              {navLinks.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
+             {navLinks.map((link) =>
+  link.isContact ? (
+    <button
+      key={link.label}
+      onClick={() => {
+        setMobileOpen(false);
 
-                  onClick={(e) => {
-  if (!link.href.includes("#")) return;
+        setTimeout(() => {
+          handleKontaktClick();
+        }, 250);
+      }}
+      className="block w-full text-left text-base font-heading font-semibold text-white/70 hover:text-white tracking-widest transition-colors"
+    >
+      {link.label}
+    </button>
+  ) : (
+    <a
+      key={link.label}
+      href={link.href}
+      onClick={(e) => {
+        if (!link.href?.includes('#')) return;
 
-  e.preventDefault();
-  setMobileOpen(false);
+        e.preventDefault();
+        setMobileOpen(false);
 
-  setTimeout(() => {
-    handleNavClick(e, link.href);
-  }, 250);
-}}
-                 
-                  className="block text-base font-heading font-semibold text-white/70 hover:text-white tracking-widest transition-colors"
-                >
-                  {link.label}
-                </a>
-              ))}
+        setTimeout(() => {
+          handleNavClick(e, link.href);
+        }, 250);
+      }}
+      className="block text-base font-heading font-semibold text-white/70 hover:text-white tracking-widest transition-colors"
+    >
+      {link.label}
+    </a>
+  )
+)}
 
               <div className="pt-4 border-t border-white/5 space-y-3">
 
@@ -261,7 +296,7 @@ export default function Navbar() {
                   ))}
                 </div> */}
 
-                <a href="/#kontakt" onClick={(e) => handleNavClick(e, '/#kontakt')}>
+                <a href="/" onClick={(e) => handleNavClick(e, '/')}>
                   <button className="w-full py-4 bg-[#24a1db] text-black font-heading font-black text-sm tracking-widest rounded-sm">
                     {t.nav.cta}
                   </button>

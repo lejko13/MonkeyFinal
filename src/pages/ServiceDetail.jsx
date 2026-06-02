@@ -9,9 +9,12 @@ import { getServiceById } from '../lib/servicesData';
 import { getProjects } from '../lib/projectsData';
 import { useLang } from '../lib/LangContext';
 
+import { useNavigate } from 'react-router-dom';
+
 export default function ServiceDetail() {
   const isMobile = useMediaQuery({ maxWidth: 768 });
 
+  const navigate = useNavigate();
   const { id } = useParams();
   const { t } = useLang();
   const sd = t.serviceDetail;
@@ -88,6 +91,24 @@ export default function ServiceDetail() {
     }
   };
 
+
+  const handleKontaktClick = () => {
+  if (location.pathname !== '/') {
+    navigate('/');
+
+    setTimeout(() => {
+      document
+        .getElementById('kontakt')
+        ?.scrollIntoView({ behavior: 'smooth' });
+    }, 100);
+  } else {
+    document
+      .getElementById('kontakt')
+      ?.scrollIntoView({ behavior: 'smooth' });
+  }
+};
+
+  
   if (!service) {
     return (
       <div className="min-h-screen bg-[#0b0b0d] flex items-center justify-center">
@@ -126,7 +147,7 @@ export default function ServiceDetail() {
           className="mb-12"
         >
           <Link
-            to="/#sluzby"
+            to="/"
             className={`inline-flex items-center gap-2 text-xs font-body text-white/30 tracking-widest ${
               !isMobile ? 'hover:text-white transition-colors' : ''
             }`}
@@ -177,32 +198,31 @@ export default function ServiceDetail() {
             animate={!isMobile ? { opacity: 1 } : undefined}
             transition={!isMobile ? { delay: 0.4 } : undefined}
           >
-            <a href="/#kontakt">
-              <motion.button
-                whileHover={
-                  !isMobile
-                    ? {
-                        scale: 1.03,
-                        boxShadow: '0 0 30px rgba(36,161,219,0.3)',
-                      }
-                    : undefined
-                }
-                whileTap={!isMobile ? { scale: 0.97 } : undefined}
-                className={`flex items-center gap-3 px-8 py-4 bg-[#24a1db] text-black font-heading font-black text-sm tracking-widest rounded-sm ${
-                  !isMobile ? 'group' : ''
-                }`}
-              >
-                {sd.ctaBtn}
+            <motion.button
+  onClick={handleKontaktClick}
+  whileHover={
+    !isMobile
+      ? {
+          scale: 1.03,
+          boxShadow: '0 0 30px rgba(36,161,219,0.3)',
+        }
+      : undefined
+  }
+  whileTap={!isMobile ? { scale: 0.97 } : undefined}
+  className={`flex items-center gap-3 px-8 py-4 bg-[#24a1db] text-black font-heading font-black text-sm tracking-widest rounded-sm ${
+    !isMobile ? 'group' : ''
+  }`}
+>
+  {sd.ctaBtn}
 
-                <ArrowRight
-                  className={`w-4 h-4 ${
-                    !isMobile
-                      ? 'group-hover:translate-x-1 transition-transform'
-                      : ''
-                  }`}
-                />
-              </motion.button>
-            </a>
+  <ArrowRight
+    className={`w-4 h-4 ${
+      !isMobile
+        ? 'group-hover:translate-x-1 transition-transform'
+        : ''
+    }`}
+  />
+</motion.button>
           </motion.div>
         </div>
       </section>
@@ -297,16 +317,14 @@ export default function ServiceDetail() {
             <p className="text-white/40 font-body text-sm leading-relaxed mb-6">
               {service.tagline}
             </p>
-
-            <a href="/#kontakt">
-              <button
-                className={`w-full py-3 bg-[#24a1db] text-black font-heading font-black text-xs tracking-widest rounded-sm ${
-                  !isMobile ? 'hover:bg-[#1e8fc4] transition-colors' : ''
-                }`}
-              >
-                {sd.quoteBtn}
-              </button>
-            </a>
+<button
+  onClick={handleKontaktClick}
+  className={`w-full py-3 bg-[#24a1db] text-black font-heading font-black text-xs tracking-widest rounded-sm ${
+    !isMobile ? 'hover:bg-[#1e8fc4] transition-colors' : ''
+  }`}
+>
+  {sd.quoteBtn}
+</button>
           </div>
         </div>
       </section>

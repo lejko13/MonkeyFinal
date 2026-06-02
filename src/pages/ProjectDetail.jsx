@@ -401,7 +401,7 @@ export default function ProjectDetail() {
             {pd.ctaSub}
           </p>
 
-          <a href="/#kontakt">
+          <a href="/">
             <motion.button
               whileHover={
                 !isMobile
