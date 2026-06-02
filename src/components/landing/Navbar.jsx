@@ -296,11 +296,12 @@ const navLinks = [
                   ))}
                 </div> */}
 
-                <a href="/" onClick={(e) => handleNavClick(e, '/')}>
-                  <button className="w-full py-4 bg-[#24a1db] text-black font-heading font-black text-sm tracking-widest rounded-sm">
-                    {t.nav.cta}
-                  </button>
-                </a>
+                <button
+  onClick={handleKontaktClick}
+  className="w-full py-4 bg-[#24a1db] text-black font-heading font-black text-sm tracking-widest rounded-sm"
+>
+  {t.nav.cta}
+</button>
               </div>
             </div>
           </motion.div>
