@@ -296,8 +296,11 @@ const navLinks = [
                   ))}
                 </div> */}
 
-                <button
-  onClick={handleKontaktClick}
+      <button
+  onClick={() => {
+    setMobileOpen(false);
+    handleKontaktClick();
+  }}
   className="w-full py-4 bg-[#24a1db] text-black font-heading font-black text-sm tracking-widest rounded-sm"
 >
   {t.nav.cta}
