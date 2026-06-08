@@ -40,7 +40,7 @@ export const translations = {
     projects: {
       heading1: 'Projekty, na ktoré',
       heading2: 'sme hrdí.',
-      filters: ['Všetko', 'Web', 'Dizajn', 'Sociálne siete', 'Video'],
+      filters: ['Všetko', 'Web', 'Dizajn', 'Sociálne siete', 'Video',"Systémy"],
 
     },
     process: {
@@ -986,27 +986,45 @@ const servicesContent = {
         { q: 'Zahŕňa SEO tvorbu obsahu?', a: 'Podľa balíka. Vieme zabezpečiť kompletné SEO copywriting alebo len stratégiu a guidelines.' },
       ],
     },
+    'firemne-systemy': {
+  title: 'Firemné Systémy',
+  tagline: 'Automatizujeme procesy. Šetríme čas.',
+  heroTagline: 'Systémy, ktoré pracujú za vás.',
+  desc: 'Vyvíjame moderné firemné systémy na mieru. Od rezervačných platforiem cez CRM až po administratívne dashboardy a zákaznícke portály.',
+  overview: 'Navrhujeme a programujeme digitálne riešenia, ktoré zjednodušujú každodennú prevádzku firmy. Vytvárame rezervačné systémy, administračné panely, CRM riešenia a interné nástroje presne podľa vašich potrieb.',
+  process: [
+    { step: '01', title: 'Analýza Potrieb', desc: 'Zistíme, ako fungujú vaše procesy a identifikujeme možnosti automatizácie.' },
+    { step: '02', title: 'Návrh Riešenia', desc: 'Pripravíme štruktúru systému, používateľské rozhranie a funkcionality.' },
+    { step: '03', title: 'Vývoj Systému', desc: 'Naprogramujeme všetky funkcie vrátane administrácie, databáz a integrácií.' },
+    { step: '04', title: 'Testovanie & Nasadenie', desc: 'Dôkladne otestujeme systém a pripravíme ho na ostrú prevádzku.' },
+    { step: '05', title: 'Podpora & Rozvoj', desc: 'Zabezpečujeme údržbu, aktualizácie a ďalší rozvoj systému.' },
+  ],
+  benefits: [
+    'Automatizácia procesov',
+    'Úspora času a nákladov',
+    'Administratívne dashboardy',
+    'Rezervačné systémy',
+    'CRM a zákaznícke portály',
+    'Riešenia na mieru'
+  ],
+  faq: [
+    {
+      q: 'Aké systémy vytvárate?',
+      a: 'Vyvíjame rezervačné systémy, CRM, interné firemné nástroje, administračné panely, zákaznícke portály a ďalšie riešenia na mieru.'
+    },
+    {
+      q: 'Dá sa systém napojiť na existujúce služby?',
+      a: 'Áno. Integrujeme platobné brány, fakturačné systémy, e-mailové nástroje, API služby a ďalšie externé riešenia.'
+    },
+    {
+      q: 'Poskytujete aj technickú podporu?',
+      a: 'Áno. Po spustení zabezpečujeme údržbu, monitoring, aktualizácie a ďalší rozvoj systému.'
+    },
+  ],
+},
 
     
-    // reklamy: {
-    //   title: 'Ad Kampane', tagline: 'Každé euro pracuje za vás.', heroTagline: 'Reklamy s ROI, nie len dosahom.',
-    //   desc: 'Tvoríme a spravujeme výkonnostné reklamné kampane na Google a Meta. Data-driven prístup zaručuje maximálnu návratnosť každej investície.',
-    //   overview: 'Tvoríme a spravujeme výkonnostné reklamné kampane na Google a Meta. Data-driven prístup zaručuje maximálnu návratnosť každej investície.',
-    //   process: [
-    //     { step: '01', title: 'Audit & Strategy', desc: 'Audit existujúcich kampaní, analýza konkurencie a definícia kampaniovej stratégie.' },
-    //     { step: '02', title: 'Campaign Setup', desc: 'Štruktúra účtu, keyword research, audience definícia a tracking implementácia.' },
-    //     { step: '03', title: 'Creative Production', desc: 'Ad kreatívy — texty, bannery, video reklamy. A/B testovanie od spustenia.' },
-    //     { step: '04', title: 'Launch & Optimization', desc: 'Spustenie a denná optimalizácia. Bid management, audience refinement a creative rotation.' },
-    //     { step: '05', title: 'Reporting', desc: 'Týždenné performance reporty s actionable insights. Transparentné výsledky bez filtrovania.' },
-    //   ],
-    //   benefits: ['ROAS tracking od dňa 1', 'Transparentné reporty', 'Google & Meta certifikácia', 'Konverzné kampane', 'Remarketing stratégia', 'Budget optimization'],
-    //   faq: [
-    //     { q: 'Aký minimálny budget potrebujem?', a: 'Pre Google Ads odporúčame min. 500€/mesiac na ad spend. Pre Meta 300€/mesiac. Agentúrny fee je zvlášť.' },
-    //     { q: 'Čo je zahrnuté v správe kampaní?', a: 'Setup, priebežná optimalizácia, A/B testovanie kreatív, bid management a mesačné reporty.' },
-    //     { q: 'Ako meriete ROAS?', a: 'Cez Google Analytics 4, Meta Pixel a konverzné akcie. Každé euro investované do reklamy sledujeme.' },
-    //   ],
-    // },
-
+  
 
     'social-media': {
       title: 'Social Media Management', tagline: 'Komunita, ktorá nakupuje.', heroTagline: 'Sociálne siete, ktoré predávajú.',

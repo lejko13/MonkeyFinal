@@ -21,13 +21,7 @@ export const servicesMeta = [
     tags: ['Video Ads', 'Reels', 'Motion', 'AI'],
     relatedProjects: ['aardwark', 'begam'],
   },
-  // {
-  //   id: 'seo',
-  //   num: '04',
-  //   icon: '↑',
-  //   tags: ['Technical SEO', 'Content', 'Link Building'],
-  //   relatedProjects: ['pharminfo', 'amg-security'],
-  // },
+
   // {
   //   id: 'reklamy',
   //   num: '05',
@@ -42,6 +36,14 @@ export const servicesMeta = [
     tags: ['Meta', 'LinkedIn', 'TikTok', 'Strategy'],
     relatedProjects: ['panorama-golf', 'hotel-pod-lipou'],
   },
+
+{
+  id: 'firemne-systemy',
+  num: '05',
+  icon: '⚙️',
+  tags: ['Rezervačné systémy', 'Admin panely', 'Dashboardy'],
+  relatedProjects: ['barber-system', 'reservation-system', 'admin-dashboard'],
+},
 ];
 
 // Merge static meta with translated content from i18n

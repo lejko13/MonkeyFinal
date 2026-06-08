@@ -4,6 +4,13 @@
 @tailwind components;
 @tailwind utilities;
 
+
+input,
+textarea,
+select {
+  font-size: 16px !important;
+}
+
 @layer base {
   :root {
     --font-heading: 'Plus Jakarta Sans', sans-serif;

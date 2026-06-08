@@ -988,10 +988,161 @@ phone: '+421 917 147 675',
 email: '[tsdesigncompanybusiness@gmail.com](mailto:tsdesigncompanybusiness@gmail.com)',
 website: 'https://left-champagne-285439.framer.app/cennik21',
 },
-}
+},
 
+// systémy
 
   
+{
+  name: 'Rezervo',
+  id: 'rezervo',
+
+  year: '2026',
+
+  tags: ['Rezervačný systém', 'Systémy'],
+
+  image: '/project/ai/REZERVO/raz.webp',
+
+ gallery: [
+  '/project/ai/REZERVO/raz.webp',
+  '/project/ai/REZERVO/dva.webp',
+  '/project/ai/REZERVO/tri.webp',
+  '/project/ai/REZERVO/styri.webp',
+  '/project/ai/REZERVO/pat.webp',
+  '/project/ai/REZERVO/sest.webp',
+  '/project/ai/REZERVO/osem.webp',
+  '/project/ai/REZERVO/jeden2.webp',
+  '/project/ai/REZERVO/dva2.webp',
+  '/project/ai/REZERVO/tri2.webp',
+  '/project/ai/REZERVO/styri2.webp',
+  '/project/ai/REZERVO/pat2.webp',
+],
+
+preklik:'https://booking-system-three-rosy.vercel.app/',
+
+url: 'https://www.Rezervo.com',
+
+  client: 'Rezervo',
+
+  tech: [
+    'React',
+    'Next.js',
+    'TypeScript',
+    'Admin Dashboard',
+    'Database',
+  ],
+
+  services: [
+    'Rezervačný systém',
+    'Admin panel',
+    'Webová aplikácia',
+    'Automatizácia rezervácií',
+    'Implementácia systému',
+  ],
+
+  process: 'Analýza potrieb → Návrh systému → Vývoj → Testovanie → Implementácia',
+
+  results: [
+    'Online rezervácie 24/7',
+    'Automatická správa termínov',
+    'Prehľadný administrátorský panel',
+    'Možnosť prenájmu alebo odkúpenia systému',
+    'Prispôsobenie podľa potrieb klienta',
+  ],
+
+  duration: '4 týždne',
+
+  category: 'Firemné systémy',
+
+  desc: 'Moderný online rezervačný systém pre barberov, salóny, kliniky, konzultantov a služby. Rezervo umožňuje prijímať rezervácie 24/7, spravovať klientov a automatizovať objednávky z jedného prehľadného rozhrania.',
+
+  challenge:
+    'Vytvoriť univerzálny rezervačný systém, ktorý bude jednoduchý pre zákazníkov a zároveň poskytne podnikateľom kompletnú kontrolu nad rezerváciami, službami a klientmi.',
+
+  solution:
+    'Vyvinul som Rezervo – modernú webovú aplikáciu s online rezerváciami, správou služieb, kalendárom, klientskou databázou a administračným panelom. Systém je možné prenajať ako službu, kúpiť na mieru alebo implementovať do existujúceho podnikania.',
+
+  location: 'Slovensko',
+
+  business: {
+    industry: 'Rezervačné systémy',
+    model: 'Prenájom • Kúpa • Implementácia',
+    website: '#',
+  },
+},
+
+
+{
+  name: 'SkillFind',
+  id: 'skillfind',
+
+  year: '2026',
+tags: ['CRM', 'Systémy'],
+
+
+image: '/project/ai/SKILLFIND/styri.webp',
+
+gallery: [
+  '/project/ai/SKILLFIND/styri.webp',
+  '/project/ai/SKILLFIND/dva.webp',
+  '/project/ai/SKILLFIND/tri.webp',
+  '/project/ai/SKILLFIND/jeden.webp',
+  '/project/ai/SKILLFIND/pat.webp',
+],
+
+  preklik: 'https://coldcall-tan.vercel.app/',
+
+  // url: 'https://skillfind.vercel.app/',
+  url: 'https://www.SkillFind.com',
+
+  client: 'SkillFind',
+
+  tech: [
+    'React',
+    'Next.js',
+    'TypeScript',
+    'Supabase',
+    'CRM Dashboard',
+  ],
+
+  services: [
+    'CRM systém',
+    'Cold Calling systém',
+    'Správa leadov',
+    'Firemná databáza',
+    'Webová aplikácia',
+  ],
+
+  process: 'Analýza workflow → Návrh systému → Vývoj → Testovanie → Nasadenie',
+
+  results: [
+    'Prehľadná evidencia všetkých oslovených firiem',
+    'Vyhľadávanie podľa telefónneho čísla',
+    'Správa leadov na jednom mieste',
+    'Rýchle filtrovanie kontaktov',
+    'Vyššia efektivita obchodného tímu',
+  ],
+
+  duration: '3 týždne',
+
+  category: 'Firemné systémy',
+
+  desc: 'SkillFind je CRM systém vytvorený pre cold calling a aktívny predaj. Umožňuje ukladať firmy, kontaktné údaje, výsledky hovorov a stav komunikácie na jednom mieste.',
+
+  challenge:
+    'Obchodníci často strácajú prehľad o tom, ktoré firmy už kontaktovali, aký bol výsledok hovoru a kedy ich majú osloviť znova. Pri väčšom množstve kontaktov vznikajú duplicity a neefektívna práca.',
+
+  solution:
+    'Vyvinul som SkillFind – jednoduchý CRM systém pre cold calling. Používateľ si po hovore uloží firmu, telefónne číslo, kontaktné údaje a výsledok komunikácie (Áno, Nie, Možno). Pri ďalšom kontakte stačí zadať telefónne číslo alebo názov firmy a systém okamžite zobrazí celú históriu komunikácie. Obchodník tak vždy vie, či bola firma kontaktovaná a aký bol výsledok predchádzajúceho hovoru.',
+
+  location: 'Slovensko',
+
+  business: {
+    industry: 'CRM & Lead Management',
+    model: 'Interný systém • SaaS • Implementácia',
+    website: 'https://skillfind.vercel.app/',
+  },
+}
 
 ];
 

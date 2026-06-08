@@ -13,6 +13,8 @@ export default function Services() {
 
   const isMobile = useMediaQuery({ maxWidth: 768 });
 
+  console.log(services);
+  
   return (
     <section id="sluzby" className="py-24 lg:py-32 bg-[#0b0b0d]">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
