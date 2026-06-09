@@ -7,7 +7,12 @@
   "theme_color": "#0b0b0b",
   "icons": [
     {
-      "src": "/logosvetle.png",
+      "src": "/favicon.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/nahlad.png",
       "sizes": "512x512",
       "type": "image/png"
     }
