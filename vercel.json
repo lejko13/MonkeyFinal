@@ -1,7 +1,7 @@
 {
   "rewrites": [
     {
-      "source": "/(.*)",
+      "source": "/((?!robots.txt|favicon.ico|manifest.json|nahlad.png|final.webp).*)",
       "destination": "/index.html"
     }
   ]
