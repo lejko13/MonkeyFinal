@@ -1,7 +1,19 @@
 {
   "rewrites": [
     {
-      "source": "/((?!robots.txt|favicon.ico|manifest.json|nahlad.png|final.webp).*)",
+      "source": "/robots.txt",
+      "destination": "/robots.txt"
+    },
+    {
+      "source": "/favicon.ico",
+      "destination": "/favicon.ico"
+    },
+    {
+      "source": "/manifest.json",
+      "destination": "/manifest.json"
+    },
+    {
+      "source": "/(.*)",
       "destination": "/index.html"
     }
   ]
