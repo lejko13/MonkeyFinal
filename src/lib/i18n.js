@@ -10,7 +10,7 @@ export const translations = {
       cta: 'REZERVOVAŤ STRETNUTIE',
     },
     hero: {
-      badge: 'Prémiová mareketingová agentúra ',
+      badge: 'Prémiová marketingová agentúra',
       h1a: 'Stojíme za',
       h1b: 'systémom,',
       h1c: 'ktorý predáva.',
