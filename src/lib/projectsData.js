@@ -1080,14 +1080,16 @@ url: 'https://www.Rezervo.com',
 tags: ['CRM', 'Systémy'],
 
 
-image: '/project/ai/SKILLFIND/styri.webp',
+image: '/project/ai/SKILLFIND/dva.webp',
 
 gallery: [
-  '/project/ai/SKILLFIND/styri.webp',
   '/project/ai/SKILLFIND/dva.webp',
+  '/project/ai/SKILLFIND/styri.webp',
   '/project/ai/SKILLFIND/tri.webp',
   '/project/ai/SKILLFIND/jeden.webp',
   '/project/ai/SKILLFIND/pat.webp',
+  '/project/ai/SKILLFIND/sest.webp',
+  '/project/ai/SKILLFIND/sedem.webp',
 ],
 
   preklik: 'https://coldcall-tan.vercel.app/',
